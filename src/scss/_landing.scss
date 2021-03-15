@@ -1,0 +1,64 @@
+.landing {
+  background-color: $purple;
+  min-height: 100vh;
+  overflow: hidden;
+
+  .content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .title {
+      text-align: center;
+      padding-top: 50px;
+      color: white;
+      font-weight: 400;
+      font-size: 62px;
+    }
+
+    .description {
+      color: white;
+      text-align: center;
+      width: 50%;
+      font-size: 18px;
+      margin-top: 25px;
+      font-weight: 300;
+    }
+
+    .illustration {
+      position: absolute;
+      top: 0;
+      right: -75px;
+    }
+
+    .stripes {
+      position: absolute;
+      // top: -225px;
+
+      // left: -300px;
+      top: 0;
+      left: -400px;
+    }
+
+    .screen {
+      width: 600px;
+      height: 300px;
+      background-color: $darkPurple;
+      border-radius: 20px;
+    }
+
+    .actions {
+      width: 90%;
+      margin: 50px auto 100px;
+      display: flex;
+      justify-content: center;
+      button {
+        margin: 0 10px;
+        width: 45%;
+        max-width: 400px;
+        font-size: clamp(14px, 1.5vw, 22px);
+      }
+    }
+  }
+}

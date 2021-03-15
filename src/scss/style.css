@@ -1,0 +1,147 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+.mainButton {
+  border-radius: 100px;
+  border: 0;
+  background: #abedd8;
+  color: black;
+  font-weight: 500;
+  padding: 10px 50px;
+  -webkit-transition: background-color 0.2s;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+
+.mainButton:hover {
+  background: #81e4c5;
+}
+
+.secondaryButton {
+  border-radius: 100px;
+  border: 0;
+  background: #39375d;
+  color: white;
+  font-weight: 500;
+  padding: 10px 50px;
+  -webkit-transition: background-color 0.2s;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+
+.secondaryButton:hover {
+  background: #2f2e4d;
+}
+
+.navbar {
+  background-color: #48466d;
+  height: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 16px;
+}
+
+.navbar ul {
+  width: 70%;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  list-style-type: none;
+  color: white;
+}
+
+.navbar ul li {
+  margin: 0 10px;
+}
+
+.navbar ul .mainButton {
+  margin-left: auto;
+  padding: 5px 40px;
+}
+
+.landing {
+  background-color: #48466d;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.landing .content {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.landing .content .title {
+  text-align: center;
+  padding-top: 50px;
+  color: white;
+  font-weight: 400;
+  font-size: 62px;
+}
+
+.landing .content .description {
+  color: white;
+  text-align: center;
+  width: 50%;
+  font-size: 18px;
+  margin-top: 25px;
+  font-weight: 300;
+}
+
+.landing .content .illustration {
+  position: absolute;
+  top: 0;
+  right: -75px;
+}
+
+.landing .content .stripes {
+  position: absolute;
+  top: 0;
+  left: -400px;
+}
+
+.landing .content .screen {
+  width: 600px;
+  height: 300px;
+  background-color: #39375d;
+  border-radius: 20px;
+}
+
+.landing .content .actions {
+  width: 90%;
+  margin: 50px auto 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.landing .content .actions button {
+  margin: 0 10px;
+  width: 45%;
+  max-width: 400px;
+  font-size: clamp(14px, 1.5vw, 22px);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,29 @@
+.mainButton {
+  border-radius: 100px;
+  border: 0;
+  background: $teal;
+  color: black;
+  font-weight: 500;
+  padding: 10px 50px;
+  transition: background-color 0.2s;
+  cursor: pointer;
+
+  &:hover {
+    background: darken($teal, 10);
+  }
+}
+
+.secondaryButton {
+  border-radius: 100px;
+  border: 0;
+  background: $darkPurple;
+  color: white;
+  font-weight: 500;
+  padding: 10px 50px;
+  transition: background-color 0.2s;
+  cursor: pointer;
+
+  &:hover {
+    background: darken($darkPurple, 5);
+  }
+}
