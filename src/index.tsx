@@ -5,11 +5,10 @@ import { Provider } from "react-redux";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { allReducers } from "./redux/reducers/index";
+import { composeWithDevTools } from "redux-devtools-extension";
 
-const store = createStore(
-  allReducers
-  // window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__()
-);
+const store = createStore(allReducers, composeWithDevTools());
+// const store = createStore(allReducers);
 
 ReactDOM.render(
   <Provider store={store}>

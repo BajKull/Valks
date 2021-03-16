@@ -1,4 +1,4 @@
-type Action = { type: string; payload: boolean };
+type Action = { type: string; payload: any };
 
 const LoginStatus = (state = null, action: Action) => {
   switch (action.type) {

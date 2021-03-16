@@ -5,24 +5,33 @@ import { auth } from "../firebase/firebase";
 import { CSSTransition } from "react-transition-group";
 import { ReactComponent as Close } from "./close.svg";
 import Loading from "../loading/Loading";
+import { loginStatus } from "../redux/actions/loginStatus";
 
-export default function Login() {
+export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [password2, setPassword2] = useState("");
   const [error, setError] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
   const [loading, setLoading] = useState(false);
   const focusWindow = useRef<HTMLDivElement>(null);
   const dispatch = useDispatch();
 
-  const signIn = (e: React.FormEvent) => {
+  const signUp = (e: React.FormEvent) => {
     e.preventDefault();
+    if (password !== password2) {
+      setError(true);
+      setErrorMsg("Passwords do not match");
+      return;
+    }
     setLoading(true);
     setError(false);
     auth
-      .signInWithEmailAndPassword(email, password)
+      .createUserWithEmailAndPassword(email, password)
       .then((res) => {
         setLoading(false);
+        dispatch(loginStatus(res.user));
+        dispatch(loginScreen(""));
       })
       .catch((err) => {
         setError(true);
@@ -31,8 +40,8 @@ export default function Login() {
       });
   };
 
-  const switchSignUp = () => {
-    dispatch(loginScreen("signup"));
+  const switchSignIn = () => {
+    dispatch(loginScreen("signin"));
   };
 
   const closeWindow = (e: React.MouseEvent) => {
@@ -59,8 +68,8 @@ export default function Login() {
     >
       <div className="content">
         <Close className="close" onClick={() => dispatch(loginScreen(""))} />
-        <h2>Sign in</h2>
-        <div className="interface interfaceSmall">
+        <h2>Sign up</h2>
+        <div className="interface interfaceBig">
           <CSSTransition
             in={error}
             unmountOnExit
@@ -86,7 +95,7 @@ export default function Login() {
             timeout={500}
             classNames="fadeout"
           >
-            <form onSubmit={(e) => signIn(e)}>
+            <form onSubmit={(e) => signUp(e)}>
               <label htmlFor="email">Email</label>
               <input
                 className="formInput"
@@ -103,14 +112,22 @@ export default function Login() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
+              <label htmlFor="confirm password">Confirm password</label>
+              <input
+                className="formInput"
+                name="confirm password"
+                type="password"
+                value={password2}
+                onChange={(e) => setPassword2(e.target.value)}
+              />
               <input type="submit" className="formSubmit" />
             </form>
           </CSSTransition>
         </div>
         <p className="tip">
-          Not a member?{" "}
-          <span className="underline" onClick={switchSignUp}>
-            Sign up now
+          Already a member?{" "}
+          <span className="underline" onClick={switchSignIn}>
+            Sign in now
           </span>
         </p>
       </div>

@@ -1,0 +1,99 @@
+.login {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .content {
+    width: 25%;
+    background-color: $purple;
+    padding: 25px;
+    border-radius: 10px;
+    color: white;
+    position: relative;
+
+    .error {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: $error;
+      border-radius: 10px 10px 0 0;
+      padding: 30px 25px;
+      width: calc(100% - 50px);
+    }
+
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      stroke: white;
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+    }
+
+    .tip {
+      color: rgb(200, 200, 200);
+      text-align: center;
+      font-size: 0.85em;
+
+      .underline {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 50px;
+      font-size: 2.25em;
+    }
+
+    .interfaceSmall {
+      height: 250px;
+    }
+
+    .interfaceBig {
+      height: 320px;
+    }
+
+    .interface {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        .formInput {
+          border: 0;
+          background: $darkPurple;
+          color: white;
+          padding: 10px;
+          margin: 5px 0 10px 0;
+          border-radius: 5px;
+        }
+
+        .formSubmit {
+          border: 0;
+          background: $teal;
+          width: 50%;
+          margin: 20px auto;
+          padding: 10px 0;
+          border-radius: 5px;
+          color: black;
+          font-weight: 500;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
