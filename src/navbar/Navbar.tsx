@@ -1,12 +1,13 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { loginScreen } from "../redux/actions/loginScreen";
+import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
+import { modalScreen } from "../redux/actions/modalScreen";
 
 export default function Navbar() {
   const dispatch = useDispatch();
+  const user = useSelector((state: RootStateOrAny) => state.loginStatus);
 
   const signIn = () => {
-    dispatch(loginScreen("signin"));
+    dispatch(modalScreen("signin"));
   };
 
   return (
@@ -14,9 +15,13 @@ export default function Navbar() {
       <ul>
         <li>About</li>
         <li>Categories</li>
-        <li className="mainButton" onClick={signIn}>
-          Sign in
-        </li>
+        {user && user !== "noUser" ? (
+          <li className="mainButton">{user.email}</li>
+        ) : (
+          <li className="mainButton" onClick={signIn}>
+            Sign in
+          </li>
+        )}
       </ul>
     </div>
   );

@@ -1,10 +1,14 @@
 import { combineReducers } from "redux";
-import LoginScreen from "./loginScreen";
+import ModalScreen from "./modalScreen";
 import LoginStatus from "./loginStatus";
+import Socket from "./socket";
+import ChannelList from "./channelList";
 
 const allReducers = combineReducers({
-  loginScreen: LoginScreen,
+  modalScreen: ModalScreen,
   loginStatus: LoginStatus,
+  socket: Socket,
+  channelList: ChannelList,
 });
 
 export { allReducers };
