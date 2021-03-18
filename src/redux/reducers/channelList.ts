@@ -1,10 +1,11 @@
-type Action = { type: string; payload: any };
+import { Channel } from "../../types";
+type Action = { type: string; payload: Channel[] | Channel };
 
 const ChannelList = (state = [], action: Action) => {
   switch (action.type) {
-    case "SET_CHANNELS":
+    case "CHANNEL_LIST_SET":
       return action.payload;
-    case "ADD_CHANNEL":
+    case "CHANNEL_LIST_ADD":
       return [...state, action.payload];
     default:
       return state;

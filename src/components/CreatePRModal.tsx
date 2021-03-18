@@ -1,11 +1,17 @@
 import React, { useState } from "react";
-import { RootStateOrAny, useSelector } from "react-redux";
+import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { createRoom } from "../connection/socketActions";
+import { modalScreen } from "../redux/actions/modalScreen";
+import { SocketCallback } from "../types";
 import Modal from "./Modal";
 
 export default function CreatePRModal() {
   const [name, setName] = useState("");
   const [category, setCategory] = useState("");
+
+  const dispatch = useDispatch();
+  const history = useHistory();
 
   const socket = useSelector((state: RootStateOrAny) => state.socket);
   const user = useSelector((state: RootStateOrAny) => state.loginStatus);
@@ -15,8 +21,11 @@ export default function CreatePRModal() {
     if (user !== "noUser") {
       const u = { name: user.displayName, email: user.email };
       const data = { user: u, name, category };
-      createRoom(socket, data, (res: any) => {
-        console.log(res);
+      createRoom(socket, data, (res: SocketCallback) => {
+        if (res.type === "success") {
+          dispatch(modalScreen(""));
+          history.push(`/channels/${res.message}`);
+        }
       });
     }
   };

@@ -1,4 +1,5 @@
 import { Socket } from "socket.io-client";
+import { SocketCallback } from "../types";
 
 type CreateRoom = {
   user: any;
@@ -6,9 +7,12 @@ type CreateRoom = {
   category: string;
 };
 
-export const createRoom = (socket: Socket, data: CreateRoom, callback: any) => {
-  console.log("tet");
-  socket.emit("createRoom", data, (error: any) => {
-    callback(error);
+export const createRoom = (
+  socket: Socket,
+  data: CreateRoom,
+  callback: (res: SocketCallback) => void
+) => {
+  socket.emit("createRoom", data, (res: SocketCallback) => {
+    callback(res);
   });
 };
