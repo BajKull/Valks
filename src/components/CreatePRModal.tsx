@@ -1,13 +1,18 @@
 import React, { useState } from "react";
 import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
+import { ReactComponent as Close } from "../login/close.svg";
 import { useHistory } from "react-router-dom";
+import { CSSTransition } from "react-transition-group";
 import { createRoom } from "../connection/socketActions";
 import { modalScreen } from "../redux/actions/modalScreen";
 import { SocketCallback } from "../types";
 import Modal from "./Modal";
+import { channelListAdd } from "../redux/actions/channelList";
 
 export default function CreatePRModal() {
   const [name, setName] = useState("");
+  const [error, setError] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
   const [category, setCategory] = useState("");
 
   const dispatch = useDispatch();
@@ -22,9 +27,14 @@ export default function CreatePRModal() {
       const u = { name: user.displayName, email: user.email };
       const data = { user: u, name, category };
       createRoom(socket, data, (res: SocketCallback) => {
+        console.log(res);
         if (res.type === "success") {
           dispatch(modalScreen(""));
-          history.push(`/channels/${res.message}`);
+          dispatch(channelListAdd(res.data));
+          history.push(`/channels/${res.data.id}`);
+        } else {
+          setError(true);
+          setErrorMsg(res.message);
         }
       });
     }
@@ -34,6 +44,17 @@ export default function CreatePRModal() {
     <Modal>
       <h2>Create private room</h2>
       <div className="interface">
+        <CSSTransition
+          in={error}
+          unmountOnExit
+          timeout={500}
+          classNames="fadeout"
+        >
+          <>
+            <p className="error">{errorMsg}</p>
+            <Close className="close" onClick={() => setError(false)} />
+          </>
+        </CSSTransition>
         <form onSubmit={handleCreate}>
           <label htmlFor="name">Room name</label>
           <input

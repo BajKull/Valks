@@ -11,6 +11,7 @@ export type Message = {
 };
 
 export type Channel = {
+  id: string;
   name: string;
   category: string;
   avatar: string;
@@ -22,4 +23,10 @@ export type Channel = {
 export type SocketCallback = {
   type: string;
   message: string;
+  data?: any;
+};
+
+export type UserList = {
+  users: User[];
+  channel: string;
 };

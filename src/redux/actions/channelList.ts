@@ -1,4 +1,4 @@
-import { Channel } from "../../types";
+import { Channel, UserList } from "../../types";
 
 export const channelListSet = (status: Channel[]) => {
   return {
@@ -11,5 +11,12 @@ export const channelListAdd = (status: Channel) => {
   return {
     type: "CHANNEL_LIST_ADD",
     payload: status,
+  };
+};
+
+export const channelUserList = (users: UserList) => {
+  return {
+    type: "CHANNEL_USER_LIST",
+    payload: users,
   };
 };

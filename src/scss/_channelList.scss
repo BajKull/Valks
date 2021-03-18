@@ -1,0 +1,50 @@
+.channelList {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: darken($purple, 5);
+  color: white;
+
+  .channelTitle {
+    font-size: 1.5em;
+    margin: 15px;
+    font-weight: 400;
+  }
+
+  .channel {
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.2s;
+    cursor: pointer;
+
+    &:hover {
+      background-color: darken($purple, 10);
+    }
+
+    .channelAvatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .channelInfo {
+      margin-left: 10px;
+      width: 220px;
+
+      .channelName {
+        font-size: 0.9em;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        word-break: break-all;
+      }
+      .channelUsers {
+        font-size: 0.75em;
+        color: rgb(200, 200, 200);
+      }
+    }
+  }
+}

@@ -7,6 +7,7 @@ import Landing from "./landing/Landing";
 import Login from "./login/Login";
 import Register from "./login/Register";
 import Navbar from "./navbar/Navbar";
+import Channels from "./channels/Channels";
 import "./scss/style.css";
 
 export default function App() {
@@ -19,6 +20,7 @@ export default function App() {
       {modalScreen === "createRoom" && <CreatePRModal />}
       <Navbar />
       <Route path="/" exact component={Landing} />
+      <Route path="/channels" component={Channels} />
     </Router>
   );
 }

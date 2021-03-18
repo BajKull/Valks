@@ -4,11 +4,12 @@ import ChannelLanding from "./ChannelLanding";
 import ChannelList from "./ChannelList";
 
 export default function Channel() {
+  console.log("tet");
   return (
-    <div>
+    <div className="channels">
       <ChannelList />
       <Route path="/channels" exact component={ChannelLanding} />
-      <Route path="/channels/:id" component={Channel} />
+      {/* <Route path="/channels/:id" component={Channel} /> */}
     </div>
   );
 }
