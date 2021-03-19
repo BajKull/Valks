@@ -18,7 +18,7 @@
 .secondaryButton {
   border-radius: 100px;
   border: 0;
-  background: #39375d;
+  background: #373552;
   color: white;
   font-weight: 500;
   padding: 10px 50px;
@@ -28,7 +28,7 @@
 }
 
 .secondaryButton:hover {
-  background: #2f2e4d;
+  background: #2d2b43;
 }
 
 .fadeout-enter {
@@ -161,14 +161,14 @@
 
 .navbar {
   background-color: #48466d;
-  height: 100px;
+  height: 70px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .navbar ul {
@@ -292,7 +292,7 @@
 
 .modal .content .interface form .formInput {
   border: 0;
-  background: #39375d;
+  background: #373552;
   color: white;
   padding: 10px;
   margin: 5px 0 10px 0;
@@ -379,7 +379,7 @@
 .landing .content .screen {
   width: 600px;
   height: 300px;
-  background-color: #39375d;
+  background-color: #373552;
   border-radius: 20px;
 }
 
@@ -402,12 +402,16 @@
 }
 
 .channels {
-  height: calc(100vh - 100px);
+  height: calc(100vh - 70px);
   background-color: #48466d;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .channelList {
-  width: 300px;
+  min-width: 300px;
+  max-width: 300px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -421,7 +425,8 @@
 }
 
 .channelList .channelTitle {
-  font-size: 1.5em;
+  height: 40px;
+  font-size: 1.6em;
   margin: 15px;
   font-weight: 400;
 }
@@ -467,6 +472,104 @@
 .channelList .channel .channelInfo .channelUsers {
   font-size: 0.75em;
   color: #c8c8c8;
+}
+
+.channelLanding {
+  width: 100%;
+  background-color: #4c4a73;
+}
+
+.channelLanding .info {
+  padding: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-bottom: 2px solid #3e3c5d;
+}
+
+.channelLanding .info button {
+  margin: 0 15px;
+}
+
+.notifications {
+  min-width: 300px;
+  max-width: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+  background-color: #3e3c5d;
+  color: white;
+}
+
+.notifications .notificationsTitle {
+  height: 40px;
+  font-size: 1.6em;
+  margin: 15px;
+  font-weight: 400;
+}
+
+.notifications .notificationsEmpty {
+  padding: 15px;
+}
+
+.notifications .notification {
+  position: relative;
+  padding: 30px 15px;
+  -webkit-transition: background-color 0.2s;
+  transition: background-color 0.2s;
+}
+
+.notifications .notification:hover {
+  background-color: #33324e;
+}
+
+.notifications .notification:hover .secondaryButton {
+  background-color: #2d2b43;
+}
+
+.notifications .notification .close {
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  stroke: white;
+  height: 16px;
+  width: 16px;
+  cursor: pointer;
+}
+
+.notifications .notification .message {
+  line-height: 1.25;
+}
+
+.notifications .notification .date {
+  color: #c8c8c8;
+  font-size: 0.75em;
+  margin-top: 0.85em;
+}
+
+.notifications .notification .actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.notifications .notification .actions button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+.notifications .notification .actions button:nth-of-type(1) {
+  margin-left: auto;
 }
 
 * {

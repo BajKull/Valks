@@ -30,3 +30,10 @@ export type UserList = {
   users: User[];
   channel: string;
 };
+
+export type UserNotification = {
+  id: string;
+  type: "invitation" | "mention";
+  message: string;
+  date: string;
+};

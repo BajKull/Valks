@@ -1,0 +1,68 @@
+.notifications {
+  min-width: 300px;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: darken($purple, 5);
+  color: white;
+
+  .notificationsTitle {
+    height: 40px;
+    font-size: 1.6em;
+    margin: 15px;
+    font-weight: 400;
+  }
+
+  .notificationsEmpty {
+    padding: 15px;
+  }
+
+  .notification {
+    position: relative;
+    padding: 30px 15px;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: darken($purple, 10);
+
+      .secondaryButton {
+        background-color: darken($darkPurple, 5);
+      }
+    }
+
+    .close {
+      position: absolute;
+      top: 5px;
+      right: 15px;
+      stroke: white;
+      height: 16px;
+      width: 16px;
+      cursor: pointer;
+    }
+
+    .message {
+      line-height: 1.25;
+    }
+
+    .date {
+      color: rgb(200, 200, 200);
+      font-size: 0.75em;
+      margin-top: 0.85em;
+    }
+
+    .actions {
+      display: flex;
+      width: 100%;
+      button {
+        padding: 5px 10px;
+        border-radius: 5px;
+        margin-left: 10px;
+
+        &:nth-of-type(1) {
+          margin-left: auto;
+        }
+      }
+    }
+  }
+}

@@ -1,5 +1,6 @@
 import React from "react";
 import CreatePR from "../components/CreatePR";
+import JoinPublic from "../components/JoinPublic";
 import { ReactComponent as Illustration } from "./illustration.svg";
 import { ReactComponent as Stripes } from "./stripes.svg";
 
@@ -16,7 +17,7 @@ export default function Landing() {
           with members of the community around the world.
         </p>
         <div className="actions">
-          <button className="mainButton">Join public chat room</button>
+          <JoinPublic />
           <CreatePR />
         </div>
         <div className="screen"></div>
