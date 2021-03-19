@@ -1,6 +1,7 @@
 import React from "react";
 import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
 import { modalScreen } from "../redux/actions/modalScreen";
+import { ReactComponent as Logo } from "../landing/logo.svg";
 
 export default function Navbar() {
   const dispatch = useDispatch();
@@ -13,6 +14,9 @@ export default function Navbar() {
   return (
     <div className="navbar">
       <ul>
+        <li>
+          <Logo className="logo" />
+        </li>
         <li>About</li>
         <li>Categories</li>
         {user && user !== "noUser" ? (
