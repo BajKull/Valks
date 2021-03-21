@@ -1,14 +1,57 @@
 .channelLanding {
   width: 100%;
   background-color: lighten($purple, 2);
+  color: white;
+
   .info {
-    padding: 15px;
+    width: 100%;
+    padding: 15px 0;
     display: flex;
     justify-content: center;
     border-bottom: 2px solid darken($purple, 5);
 
     button {
       margin: 0 15px;
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .background {
+      position: absolute;
+      fill: darken($purple, 5);
+      stroke: darken($purple, 5);
+    }
+
+    .channelLandingTitle {
+      margin-top: 50px;
+      font-size: 2em;
+    }
+
+    .logo {
+      width: 256px;
+      height: 256px;
+      margin: 50px 0;
+    }
+
+    .recommended {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .category {
+        margin-bottom: 20px;
+        .tag {
+          padding: 3px 10px;
+          background-color: $blue;
+          border-radius: 5px;
+          margin-left: 5px;
+          font-weight: 400;
+        }
+      }
     }
   }
 }
