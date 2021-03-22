@@ -1,0 +1,73 @@
+.currentChannel {
+  width: 100%;
+  background-color: lighten($purple, 2);
+
+  .info {
+    display: flex;
+    padding: 15px;
+    height: 40px;
+    position: relative;
+    border-bottom: 2px solid $darkPurple;
+
+    .close {
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      stroke: $darkPurple;
+      cursor: pointer;
+    }
+
+    .channelName {
+      text-align: center;
+      margin: auto;
+      color: white;
+      font-weight: 400;
+    }
+
+    .secondaryButton {
+      position: absolute;
+      left: 15px;
+      top: 15px;
+    }
+  }
+
+  .content {
+    height: calc(100% - 72px);
+
+    .chatMessages {
+      height: calc(100% - 70px);
+    }
+
+    .sendMessage {
+      height: 40px;
+      width: calc(100% - 30px);
+      padding: 15px;
+      display: flex;
+
+      .messageInput {
+        padding: 10px;
+        background: $darkPurple;
+        width: calc(100% - 175px);
+        border: 0;
+        border-radius: 5px;
+        color: white;
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      .mainButton {
+        display: block;
+        border-radius: 5px;
+        margin-left: auto;
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+}

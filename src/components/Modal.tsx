@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
-import { ReactComponent as Close } from "../login/close.svg";
+import { ReactComponent as Close } from "../images/close.svg";
 import { modalScreen } from "../redux/actions/modalScreen";
 
 type ModalProps = {

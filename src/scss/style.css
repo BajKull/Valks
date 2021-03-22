@@ -427,7 +427,6 @@
           flex-direction: column;
   height: 100%;
   background-color: #3e3c5d;
-  color: white;
 }
 
 .channelList .channelTitle {
@@ -435,6 +434,7 @@
   font-size: 1.6em;
   margin: 15px;
   font-weight: 400;
+  color: white;
 }
 
 .channelList .channel {
@@ -448,6 +448,8 @@
   -webkit-transition: background-color 0.2s;
   transition: background-color 0.2s;
   cursor: pointer;
+  color: white;
+  text-decoration: none;
 }
 
 .channelList .channel:hover {
@@ -655,6 +657,84 @@
 
 .notifications .notification .actions button:nth-of-type(1) {
   margin-left: auto;
+}
+
+.currentChannel {
+  width: 100%;
+  background-color: #4c4a73;
+}
+
+.currentChannel .info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 15px;
+  height: 40px;
+  position: relative;
+  border-bottom: 2px solid #373552;
+}
+
+.currentChannel .info .close {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  stroke: #373552;
+  cursor: pointer;
+}
+
+.currentChannel .info .channelName {
+  text-align: center;
+  margin: auto;
+  color: white;
+  font-weight: 400;
+}
+
+.currentChannel .info .secondaryButton {
+  position: absolute;
+  left: 15px;
+  top: 15px;
+}
+
+.currentChannel .content {
+  height: calc(100% - 72px);
+}
+
+.currentChannel .content .chatMessages {
+  height: calc(100% - 70px);
+}
+
+.currentChannel .content .sendMessage {
+  height: 40px;
+  width: calc(100% - 30px);
+  padding: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.currentChannel .content .sendMessage .messageInput {
+  padding: 10px;
+  background: #373552;
+  width: calc(100% - 175px);
+  border: 0;
+  border-radius: 5px;
+  color: white;
+}
+
+.currentChannel .content .sendMessage .messageInput:focus {
+  outline: none;
+}
+
+.currentChannel .content .sendMessage .mainButton {
+  display: block;
+  border-radius: 5px;
+  margin-left: auto;
+}
+
+.currentChannel .content .sendMessage .mainButton:focus {
+  outline: none;
 }
 
 * {

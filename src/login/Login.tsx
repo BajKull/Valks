@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { modalScreen } from "../redux/actions/modalScreen";
 import { auth } from "../firebase/firebase";
 import { CSSTransition } from "react-transition-group";
-import { ReactComponent as Close } from "./close.svg";
+import { ReactComponent as Close } from "../images/close.svg";
 import Loading from "../loading/Loading";
 import { loginStatus } from "../redux/actions/loginStatus";
 import Modal from "../components/Modal";

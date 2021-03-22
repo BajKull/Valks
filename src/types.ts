@@ -6,8 +6,9 @@ export type User = {
 
 export type Message = {
   author: User;
-  date: Date;
+  date?: Date;
   msg: string;
+  channel: Channel;
 };
 
 export type Channel = {

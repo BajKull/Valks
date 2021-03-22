@@ -1,5 +1,6 @@
 import React from "react";
 import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { Channel } from "../types";
 
 export default function ChannelList() {
@@ -9,7 +10,11 @@ export default function ChannelList() {
     <div className="channelList">
       <h1 className="channelTitle">Your channels</h1>
       {channelList.map((channel: Channel) => (
-        <div className="channel">
+        <Link
+          to={`/channels/${channel.id}`}
+          className="channel"
+          key={channel.id}
+        >
           <img
             src={channel.avatar}
             alt={channel.name}
@@ -19,7 +24,7 @@ export default function ChannelList() {
             <h2 className="channelName">{channel.name}</h2>
             <p className="channelUsers">{channel.users.length} users</p>
           </div>
-        </div>
+        </Link>
       ))}
     </div>
   );

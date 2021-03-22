@@ -5,13 +5,13 @@
   flex-direction: column;
   height: 100%;
   background-color: darken($purple, 5);
-  color: white;
 
   .channelTitle {
     height: 40px;
     font-size: 1.6em;
     margin: 15px;
     font-weight: 400;
+    color: white;
   }
 
   .channel {
@@ -20,6 +20,8 @@
     align-items: center;
     transition: background-color 0.2s;
     cursor: pointer;
+    color: white;
+    text-decoration: none;
 
     &:hover {
       background-color: darken($purple, 10);

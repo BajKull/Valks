@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
-import { ReactComponent as Close } from "../login/close.svg";
+import { ReactComponent as Close } from "../images/close.svg";
 import { useHistory } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
 import { createRoom } from "../connection/socketActions";

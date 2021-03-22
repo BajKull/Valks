@@ -1,6 +1,6 @@
 import React from "react";
 import { UserNotification } from "../types";
-import { ReactComponent as Close } from "../login/close.svg";
+import { ReactComponent as Close } from "../images/close.svg";
 import { useDispatch } from "react-redux";
 import { removeNotification } from "../redux/actions/notifications";
 
