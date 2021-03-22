@@ -503,6 +503,23 @@
 }
 
 .channelLanding .content {
+  height: calc(100% - 72px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+.channelLanding .content .wrapper {
+  position: absolute;
+  z-index: 1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -515,10 +532,15 @@
           align-items: center;
 }
 
-.channelLanding .content .background {
+.channelLanding .content .categoryImage {
+  width: 50%;
+  height: 75%;
+  bottom: 25px;
+  right: 25px;
   position: absolute;
-  fill: #3e3c5d;
-  stroke: #3e3c5d;
+  fill: #48466d;
+  stroke: #48466d;
+  z-index: 0;
 }
 
 .channelLanding .content .channelLandingTitle {

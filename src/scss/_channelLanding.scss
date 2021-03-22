@@ -16,14 +16,29 @@
   }
 
   .content {
+    height: calc(100% - 72px);
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
 
-    .background {
+    .wrapper {
       position: absolute;
-      fill: darken($purple, 5);
-      stroke: darken($purple, 5);
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .categoryImage {
+      width: 50%;
+      height: 75%;
+      bottom: 25px;
+      right: 25px;
+      position: absolute;
+      fill: $purple;
+      stroke: $purple;
+      z-index: 0;
     }
 
     .channelLandingTitle {

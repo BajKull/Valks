@@ -16,7 +16,7 @@ export default function Notifications() {
         </p>
       )}
       {notifications.map((el: UserNotification) => (
-        <Notification notification={el} />
+        <Notification notification={el} key={el.id} />
       ))}
     </div>
   );

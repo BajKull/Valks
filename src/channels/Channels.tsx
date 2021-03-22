@@ -5,7 +5,6 @@ import ChannelList from "./ChannelList";
 import Notifications from "./Notifications";
 
 export default function Channel() {
-  console.log("tet");
   return (
     <div className="channels">
       <ChannelList />
