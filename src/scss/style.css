@@ -280,9 +280,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  width: 100%;
 }
 
 .modal .content .interface form {
@@ -296,7 +294,7 @@
   width: 100%;
 }
 
-.modal .content .interface form .formInput {
+.modal .content .interface .formInput {
   border: 0;
   background: #373552;
   color: white;
@@ -305,23 +303,23 @@
   border-radius: 5px;
 }
 
-.modal .content .interface form .formInput::-webkit-input-placeholder {
+.modal .content .interface .formInput::-webkit-input-placeholder {
   color: #aaaaaa;
 }
 
-.modal .content .interface form .formInput:-ms-input-placeholder {
+.modal .content .interface .formInput:-ms-input-placeholder {
   color: #aaaaaa;
 }
 
-.modal .content .interface form .formInput::-ms-input-placeholder {
+.modal .content .interface .formInput::-ms-input-placeholder {
   color: #aaaaaa;
 }
 
-.modal .content .interface form .formInput::placeholder {
+.modal .content .interface .formInput::placeholder {
   color: #aaaaaa;
 }
 
-.modal .content .interface form .formSubmit {
+.modal .content .interface .formSubmit {
   border: 0;
   background: #abedd8;
   width: 50%;
@@ -703,6 +701,35 @@
 
 .currentChannel .content .chatMessages {
   height: calc(100% - 70px);
+  overflow-y: auto;
+}
+
+.currentChannel .content .chatMessages .chatMessage {
+  width: calc(100% - 50px);
+  color: white;
+  padding: 10px 25px;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+
+.currentChannel .content .chatMessages .chatMessage:hover {
+  background-color: #48466d;
+}
+
+.currentChannel .content .chatMessages .chatMessage .messageInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.currentChannel .content .chatMessages .chatMessage .messageInfo .messageAuthor {
+  color: #ffc628;
+}
+
+.currentChannel .content .chatMessages .chatMessage .messageInfo .messageDate {
+  color: #c8c8c8;
+  font-size: 0.75em;
+  margin: 4px 0 0 5px;
 }
 
 .currentChannel .content .sendMessage {

@@ -1,10 +1,9 @@
 import React from "react";
-import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
+import { RootStateOrAny, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Channel } from "../types";
 
 export default function ChannelList() {
-  const dispatch = useDispatch();
   const channelList = useSelector((state: RootStateOrAny) => state.channelList);
   return (
     <div className="channelList">

@@ -9,15 +9,20 @@ import Register from "./login/Register";
 import Navbar from "./navbar/Navbar";
 import Channels from "./channels/Channels";
 import "./scss/style.css";
+import InviteToRoom from "./components/InviteToRoom";
+import Socket from "./connection/Socket";
 
 export default function App() {
   const modalScreen = useSelector((state: RootStateOrAny) => state.modalScreen);
   useAuth();
+
   return (
     <Router>
+      <Socket />
       {modalScreen === "signin" && <Login />}
       {modalScreen === "signup" && <Register />}
       {modalScreen === "createRoom" && <CreatePRModal />}
+      {modalScreen === "invite" && <InviteToRoom />}
       <Navbar />
       <Route path="/" exact component={Landing} />
       <Route path="/channels" component={Channels} />

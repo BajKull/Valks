@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { modalScreen } from "../redux/actions/modalScreen";
-import { auth } from "../firebase/firebase";
+import { auth, firestore } from "../firebase/firebase";
 import { CSSTransition } from "react-transition-group";
 import { ReactComponent as Close } from "../images/close.svg";
 import Loading from "../loading/Loading";
@@ -32,6 +32,18 @@ export default function Register() {
         setLoading(false);
         dispatch(loginStatus(res.user));
         dispatch(modalScreen(""));
+        const currentUser = res.user;
+        const userName = email.split("@")[0];
+
+        if (currentUser) {
+          currentUser?.updateProfile({ displayName: userName });
+          firestore.collection("users").doc(userName).set({
+            notifications: [],
+            channels: [],
+            color: "rgb(255, 255, 255)",
+            name: userName,
+          });
+        }
       })
       .catch((err) => {
         setError(true);

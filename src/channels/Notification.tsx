@@ -3,6 +3,7 @@ import { UserNotification } from "../types";
 import { ReactComponent as Close } from "../images/close.svg";
 import { useDispatch } from "react-redux";
 import { removeNotification } from "../redux/actions/notifications";
+import { displayDate } from "../components/displayDate";
 
 type NotificationProps = {
   notification: UserNotification;
@@ -20,7 +21,7 @@ export default function Notification(props: NotificationProps) {
       <div className="notification">
         <Close className="close" onClick={deleteNotification} />
         <p className="message">{props.notification.message}</p>
-        <p className="date">{props.notification.date}</p>
+        <p className="date">{displayDate(props.notification.date)}</p>
       </div>
     );
   else
@@ -28,7 +29,7 @@ export default function Notification(props: NotificationProps) {
       <div className="notification">
         <Close className="close" onClick={deleteNotification} />
         <p className="message">{props.notification.message}</p>
-        <p className="date">{props.notification.date}</p>
+        <p className="date">{displayDate(props.notification.date)}</p>
         <div className="actions">
           <button className="mainButton">Accept</button>
           <button className="secondaryButton" onClick={deleteNotification}>

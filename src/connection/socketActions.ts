@@ -1,6 +1,15 @@
-import { callbackify } from "node:util";
-import { Socket } from "socket.io-client";
-import { Channel, Message, SocketCallback, User } from "../types";
+import {
+  Channel,
+  Message,
+  SocketCallback,
+  User,
+  UserInvitation,
+} from "../types";
+
+import { io } from "socket.io-client";
+
+const ENDPOINT = "http://localhost:5000/";
+const socket = io(ENDPOINT);
 
 type CreateRoom = {
   user: any;
@@ -8,8 +17,11 @@ type CreateRoom = {
   category: string;
 };
 
+export const activeUser = (user: User) => {
+  socket.emit("activeUser", { ...user, socketId: socket.id });
+};
+
 export const createRoom = (
-  socket: Socket,
   data: CreateRoom,
   callback: (res: SocketCallback) => void
 ) => {
@@ -19,18 +31,27 @@ export const createRoom = (
 };
 
 export const sendMessage = (
-  socket: Socket,
   msg: string,
   author: User,
   channel: Channel,
   callback: (res: SocketCallback) => void
 ) => {
-  const data: Message = {
-    msg,
-    author,
-    channel,
-  };
+  const data: Message = { msg, author, channel };
   socket.emit("sendMessage", data, (res: SocketCallback) => {
     callback(res);
   });
 };
+
+export const sendInvitation = (
+  author: User,
+  channel: Channel,
+  name: string,
+  callback: (res: SocketCallback) => void
+) => {
+  const data: UserInvitation = { author, channel, name };
+  socket.emit("sendInvitation", data, (res: SocketCallback) => {
+    callback(res);
+  });
+};
+
+export { socket };

@@ -38,6 +38,31 @@
 
     .chatMessages {
       height: calc(100% - 70px);
+      overflow-y: auto;
+
+      .chatMessage {
+        width: calc(100% - 50px);
+        color: white;
+        padding: 10px 25px;
+        font-size: 0.9em;
+        word-break: break-all;
+        &:hover {
+          background-color: $purple;
+        }
+        .messageInfo {
+          display: flex;
+
+          .messageAuthor {
+            color: rgb(255, 198, 40);
+          }
+
+          .messageDate {
+            color: rgb(200, 200, 200);
+            font-size: 0.75em;
+            margin: 4px 0 0 5px;
+          }
+        }
+      }
     }
 
     .sendMessage {

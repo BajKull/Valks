@@ -66,37 +66,36 @@
     .interface {
       display: flex;
       flex-direction: column;
-      align-items: center;
+      width: 100%;
 
       form {
         display: flex;
         flex-direction: column;
         width: 100%;
+      }
+      .formInput {
+        border: 0;
+        background: $darkPurple;
+        color: white;
+        padding: 10px;
+        margin: 5px 0 10px 0;
+        border-radius: 5px;
 
-        .formInput {
-          border: 0;
-          background: $darkPurple;
-          color: white;
-          padding: 10px;
-          margin: 5px 0 10px 0;
-          border-radius: 5px;
-
-          &::placeholder {
-            color: rgb(170, 170, 170);
-          }
+        &::placeholder {
+          color: rgb(170, 170, 170);
         }
+      }
 
-        .formSubmit {
-          border: 0;
-          background: $teal;
-          width: 50%;
-          margin: 20px auto;
-          padding: 10px 0;
-          border-radius: 5px;
-          color: black;
-          font-weight: 500;
-          cursor: pointer;
-        }
+      .formSubmit {
+        border: 0;
+        background: $teal;
+        width: 50%;
+        margin: 20px auto;
+        padding: 10px 0;
+        border-radius: 5px;
+        color: black;
+        font-weight: 500;
+        cursor: pointer;
       }
     }
   }

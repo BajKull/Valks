@@ -7,13 +7,14 @@ import { channelMessagesAdd } from "../redux/actions/channelMessages";
 export default function SendMessage({ channel }: { channel: Channel }) {
   const [message, setMessage] = useState("");
   const user = useSelector((state: RootStateOrAny) => state.loginStatus);
-  const socket = useSelector((state: RootStateOrAny) => state.socket);
   const dispatch = useDispatch();
 
   const send = () => {
     if (message) {
-      sendMessage(socket, message, user, channel, (res: SocketCallback) => {
+      sendMessage(message, user, channel, (res: SocketCallback) => {
         dispatch(channelMessagesAdd(res.data));
+        const body = document.querySelector(".chatMessages");
+        if (body) body.scrollTop = body.scrollHeight;
       });
       setMessage("");
     }

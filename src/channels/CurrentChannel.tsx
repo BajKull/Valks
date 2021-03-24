@@ -2,6 +2,7 @@ import React from "react";
 import { RootStateOrAny, useSelector } from "react-redux";
 import { Redirect, useLocation } from "react-router";
 import { Link } from "react-router-dom";
+import InviteButton from "../components/InviteButton";
 import { ReactComponent as Close } from "../images/close.svg";
 import { Channel } from "../types";
 import ChatMessages from "./ChatMessages";
@@ -19,7 +20,7 @@ export default function CurrentChannel() {
     return (
       <div className="currentChannel">
         <div className="info">
-          <button className="secondaryButton">Invite</button>
+          <InviteButton />
           <h2 className="channelName">{currentChannel.name}</h2>
           <Link to="/channels">
             <Close className="close" />

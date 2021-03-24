@@ -17,11 +17,10 @@ const ChannelList = (state = [], action: Action) => {
         else return { ...channel, users: users.users };
       });
     case "CHANNEL_MESSAGE_ADD":
-      console.log(action.payload);
       return state.map((channel: Channel) => {
-        const msg: Message = action.payload as Message;
+        const msg = action.payload as Message;
         if (channel.id !== msg.channel.id) return channel;
-        else return { ...channel, messages: [...channel.messages, msg] };
+        return { ...channel, messages: [...channel.messages, msg] };
       });
     case "CHANNEL_MESSAGE_SET":
       return state.map((channel: Channel) => {

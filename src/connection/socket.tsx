@@ -1,22 +1,27 @@
 import React, { useEffect } from "react";
-import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { channelUserList } from "../redux/actions/channelList";
 import { channelMessagesAdd } from "../redux/actions/channelMessages";
-import { SocketCallback, UserList } from "../types";
+import { addNotification } from "../redux/actions/notifications";
+import { Message, UserList, UserNotification } from "../types";
+import { socket } from "./socketActions";
 
 export default function Socket() {
   const dispatch = useDispatch();
-  const socket = useSelector((state: RootStateOrAny) => state.socket);
 
   useEffect(() => {
+    if (!socket) return;
     socket.on("userList", (data: UserList) => {
       dispatch(channelUserList(data));
     });
-    socket.on("message", (data: SocketCallback) => {
-      console.log(data);
-      dispatch(channelMessagesAdd(data.data));
+    socket.on("message", (data: Message) => {
+      dispatch(channelMessagesAdd(data));
     });
-  }, [dispatch, socket]);
+    socket.on("notification", (data: UserNotification) => {
+      console.log(data);
+      dispatch(addNotification(data));
+    });
+  }, [dispatch]);
 
   return <></>;
 }

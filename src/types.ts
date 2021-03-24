@@ -1,10 +1,13 @@
 export type User = {
+  id: string;
+  socketId?: string;
   name: string;
   email: string;
   avatar: string;
 };
 
 export type Message = {
+  id?: string;
   author: User;
   date?: Date;
   msg: string;
@@ -36,5 +39,12 @@ export type UserNotification = {
   id: string;
   type: "invitation" | "mention";
   message: string;
-  date: string;
+  date: Date;
+  channelId?: string;
+};
+
+export type UserInvitation = {
+  author: User;
+  channel: Channel;
+  name: string;
 };

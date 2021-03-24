@@ -17,8 +17,6 @@ export default function CreatePRModal() {
 
   const dispatch = useDispatch();
   const history = useHistory();
-
-  const socket = useSelector((state: RootStateOrAny) => state.socket);
   const user = useSelector((state: RootStateOrAny) => state.loginStatus);
 
   const handleCreate = (e: React.FormEvent) => {
@@ -26,8 +24,7 @@ export default function CreatePRModal() {
     if (user !== "noUser") {
       const u = { name: user.displayName, email: user.email };
       const data = { user: u, name, category };
-      createRoom(socket, data, (res: SocketCallback) => {
-        console.log(res);
+      createRoom(data, (res: SocketCallback) => {
         if (res.type === "success") {
           dispatch(modalScreen(""));
           dispatch(channelListAdd(res.data));
