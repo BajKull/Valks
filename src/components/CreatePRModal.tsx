@@ -22,8 +22,7 @@ export default function CreatePRModal() {
   const handleCreate = (e: React.FormEvent) => {
     e.preventDefault();
     if (user !== "noUser") {
-      const u = { name: user.displayName, email: user.email };
-      const data = { user: u, name, category };
+      const data = { user, name, category };
       createRoom(data, (res: SocketCallback) => {
         if (res.type === "success") {
           dispatch(modalScreen(""));

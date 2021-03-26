@@ -15,6 +15,10 @@
 
     li {
       margin: 0 10px;
+
+      a {
+        text-decoration: none;
+      }
     }
 
     .logo {
@@ -23,9 +27,15 @@
       height: 40px;
     }
 
-    .mainButton {
+    .mainButton,
+    .secondaryButton {
+      padding: 5px 30px;
+    }
+
+    .user {
+      display: flex;
+      align-items: center;
       margin-left: auto;
-      padding: 5px 40px;
     }
   }
 }

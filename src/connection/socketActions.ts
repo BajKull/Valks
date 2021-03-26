@@ -12,7 +12,7 @@ const ENDPOINT = "http://localhost:5000/";
 const socket = io(ENDPOINT);
 
 type CreateRoom = {
-  user: any;
+  user: User;
   name: string;
   category: string;
 };
@@ -50,6 +50,15 @@ export const sendInvitation = (
 ) => {
   const data: UserInvitation = { author, channel, name };
   socket.emit("sendInvitation", data, (res: SocketCallback) => {
+    callback(res);
+  });
+};
+
+export const acceptInvitation = (
+  invitation: UserInvitation,
+  callback: (res: SocketCallback) => void
+) => {
+  socket.emit("acceptInvitation", invitation, (res: SocketCallback) => {
     callback(res);
   });
 };

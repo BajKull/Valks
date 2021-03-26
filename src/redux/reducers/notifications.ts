@@ -11,6 +11,8 @@ const Notifications = (state = [], action: Action) => {
         (el: UserNotification) => el.id === action.payload.id
       );
       return [...state.slice(0, index), ...state.slice(index + 1)];
+    case "SET_NOTIFICATIONS":
+      return action.payload;
     default:
       return state;
   }

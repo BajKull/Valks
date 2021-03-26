@@ -11,10 +11,12 @@ import Channels from "./channels/Channels";
 import "./scss/style.css";
 import InviteToRoom from "./components/InviteToRoom";
 import Socket from "./connection/Socket";
+import useData from "./firebase/useData";
 
 export default function App() {
   const modalScreen = useSelector((state: RootStateOrAny) => state.modalScreen);
   useAuth();
+  useData();
 
   return (
     <Router>

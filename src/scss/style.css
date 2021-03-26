@@ -188,15 +188,29 @@
   margin: 0 10px;
 }
 
+.navbar ul li a {
+  text-decoration: none;
+}
+
 .navbar ul .logo {
   display: block;
   width: 40px;
   height: 40px;
 }
 
-.navbar ul .mainButton {
+.navbar ul .mainButton,
+.navbar ul .secondaryButton {
+  padding: 5px 30px;
+}
+
+.navbar ul .user {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-left: auto;
-  padding: 5px 40px;
 }
 
 .modal {
@@ -582,6 +596,7 @@
 .notifications {
   min-width: 300px;
   max-width: 300px;
+  max-height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -592,6 +607,24 @@
   height: 100%;
   background-color: #3e3c5d;
   color: white;
+  overflow-y: auto;
+}
+
+.notifications::-webkit-scrollbar {
+  width: 10px;
+}
+
+.notifications::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.notifications::-webkit-scrollbar-thumb {
+  background: #33324e;
+  border-radius: 5px;
+}
+
+.notifications::-webkit-scrollbar-thumb:hover {
+  background: #29283e;
 }
 
 .notifications .notificationsTitle {

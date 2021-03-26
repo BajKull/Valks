@@ -2,7 +2,10 @@ import React from "react";
 import { UserNotification } from "../types";
 import { ReactComponent as Close } from "../images/close.svg";
 import { useDispatch } from "react-redux";
-import { removeNotification } from "../redux/actions/notifications";
+import {
+  removeNotification,
+  acceptNotification,
+} from "../redux/actions/notifications";
 import { displayDate } from "../components/displayDate";
 
 type NotificationProps = {
@@ -14,6 +17,10 @@ export default function Notification(props: NotificationProps) {
 
   const deleteNotification = () => {
     dispatch(removeNotification(props.notification));
+  };
+
+  const accNotification = () => {
+    dispatch(acceptNotification(props.notification));
   };
 
   if (props.notification.type === "mention")
@@ -31,7 +38,9 @@ export default function Notification(props: NotificationProps) {
         <p className="message">{props.notification.message}</p>
         <p className="date">{displayDate(props.notification.date)}</p>
         <div className="actions">
-          <button className="mainButton">Accept</button>
+          <button className="mainButton" onClick={accNotification}>
+            Accept
+          </button>
           <button className="secondaryButton" onClick={deleteNotification}>
             Decline
           </button>
