@@ -8,11 +8,15 @@ import Notifications from "./Notifications";
 
 export default function Channel() {
   const user = useSelector((state: RootStateOrAny) => state.loginStatus);
+  const loadingScreen = useSelector(
+    (state: RootStateOrAny) => state.loadingScreen
+  );
+  if (loadingScreen) return null;
   return (
     <div className="channels">
       <ChannelList />
       <Route path="/channels" exact component={ChannelLanding} />
-      <Route path="/channels" component={CurrentChannel} />
+      <Route path="/channels/:id" component={CurrentChannel} />
       <Notifications />
       {user === "noUser" && <Redirect to="/" />}
     </div>

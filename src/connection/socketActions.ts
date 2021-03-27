@@ -4,6 +4,7 @@ import {
   SocketCallback,
   User,
   UserInvitation,
+  UserNotification,
 } from "../types";
 
 import { io } from "socket.io-client";
@@ -17,8 +18,17 @@ type CreateRoom = {
   category: string;
 };
 
-export const activeUser = (user: User) => {
-  socket.emit("activeUser", { ...user, socketId: socket.id });
+export const activeUser = (
+  user: User,
+  callback: (res: SocketCallback) => void
+) => {
+  socket.emit(
+    "activeUser",
+    { ...user, socketId: socket.id },
+    (res: SocketCallback) => {
+      callback(res);
+    }
+  );
 };
 
 export const createRoom = (
@@ -55,12 +65,19 @@ export const sendInvitation = (
 };
 
 export const acceptInvitation = (
-  invitation: UserInvitation,
+  invitation: UserNotification,
   callback: (res: SocketCallback) => void
 ) => {
   socket.emit("acceptInvitation", invitation, (res: SocketCallback) => {
     callback(res);
   });
+};
+
+export const deleteNotification = (
+  user: User,
+  notification: UserNotification
+) => {
+  socket.emit("deleteNotification", user, notification);
 };
 
 export { socket };

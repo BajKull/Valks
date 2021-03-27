@@ -10,11 +10,13 @@ export default function Socket() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    console.log(socket);
     if (!socket) return;
     socket.on("userList", (data: UserList) => {
       dispatch(channelUserList(data));
     });
     socket.on("message", (data: Message) => {
+      console.log("asd");
       dispatch(channelMessagesAdd(data));
     });
     socket.on("notification", (data: UserNotification) => {

@@ -42,6 +42,7 @@ export default function Register() {
             channels: [],
             color: "rgb(255, 255, 255)",
             name: userName,
+            email,
           });
         }
       })

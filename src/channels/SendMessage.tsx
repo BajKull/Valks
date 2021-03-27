@@ -12,7 +12,7 @@ export default function SendMessage({ channel }: { channel: Channel }) {
   const send = () => {
     if (message) {
       sendMessage(message, user, channel, (res: SocketCallback) => {
-        dispatch(channelMessagesAdd(res.data));
+        if (res.type === "error") console.log(res.message);
         const body = document.querySelector(".chatMessages");
         if (body) body.scrollTop = body.scrollHeight;
       });
