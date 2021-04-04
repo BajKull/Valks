@@ -819,12 +819,13 @@
 
 .currentChannel .content .chatMessages .chatMessage .messageInfo .messageAuthor {
   color: #ffc628;
+  margin-right: 5px;
 }
 
 .currentChannel .content .chatMessages .chatMessage .messageInfo .messageDate {
   color: #c8c8c8;
   font-size: 0.75em;
-  margin: 4px 0 0 5px;
+  margin-top: 4px;
 }
 
 .currentChannel .content .sendMessage {

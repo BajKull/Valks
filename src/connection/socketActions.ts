@@ -46,7 +46,7 @@ export const sendMessage = (
   channel: Channel,
   callback: (res: SocketCallback) => void
 ) => {
-  const data: Message = { msg, author, channel };
+  const data: Message = { msg, author, channel, system: false };
   socket.emit("sendMessage", data, (res: SocketCallback) => {
     callback(res);
   });

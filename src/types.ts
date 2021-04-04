@@ -13,6 +13,7 @@ export type Message = {
   date?: Date;
   msg: string;
   channel?: Channel;
+  system: boolean;
 };
 
 export type Channel = {
