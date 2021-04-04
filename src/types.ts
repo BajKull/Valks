@@ -4,6 +4,7 @@ export type User = {
   name: string;
   email: string;
   avatar: string;
+  publicChannels: string[];
 };
 
 export type Message = {
@@ -11,7 +12,7 @@ export type Message = {
   author: User;
   date?: Date;
   msg: string;
-  channel: Channel;
+  channel?: Channel;
 };
 
 export type Channel = {

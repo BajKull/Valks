@@ -10,7 +10,11 @@ export default function ChannelList() {
       <h1 className="channelTitle">Your channels</h1>
       {channelList.map((channel: Channel) => (
         <Link
-          to={`/channels/${channel.id}`}
+          to={
+            channel.type === "private"
+              ? `/channels/${channel.id}`
+              : `/channels/public/${channel.category}`
+          }
           className="channel"
           key={channel.id}
         >

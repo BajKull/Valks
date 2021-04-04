@@ -1,0 +1,131 @@
+.publicCategories {
+  width: 100%;
+  padding: 25px;
+  position: relative;
+
+  .close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    height: 20px;
+    width: 20px;
+    stroke: white;
+    cursor: pointer;
+  }
+
+  .search {
+    width: 40%;
+    margin: 0 auto 25px auto;
+    display: flex;
+    background-color: $darkPurple;
+    border-radius: 5px;
+    .icon {
+      fill: rgb(170, 170, 170);
+      width: 20px;
+      height: 20px;
+      padding: 10px;
+      cursor: pointer;
+      transition: fill 0.2s;
+
+      &:hover {
+        fill: white;
+      }
+    }
+    .filter {
+      width: 100%;
+      border: 0;
+      background: $darkPurple;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+
+      &::placeholder {
+        color: rgb(170, 170, 170);
+      }
+
+      &:focus {
+        outline: 0;
+      }
+    }
+  }
+
+  .header {
+    display: flex;
+    margin-bottom: 10px;
+    padding: 0 10px;
+    .container {
+      width: 125px;
+      margin: auto;
+      display: flex;
+      justify-content: center;
+
+      &:nth-of-type(2) {
+        padding-right: 5px;
+      }
+
+      .icon {
+        height: 24px;
+        width: 24px;
+        fill: white;
+      }
+    }
+    .hidden {
+      visibility: hidden;
+    }
+  }
+
+  .categories {
+    display: flex;
+    flex-direction: column;
+    max-height: calc(100vh - 225px);
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: darken($purple, 10);
+      border-radius: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: darken($purple, 15);
+    }
+
+    .publicCategory {
+      display: flex;
+      color: white;
+      padding: 10px;
+      background-color: darken($purple, 3);
+      border-radius: 5px;
+      margin: 5px 0;
+      align-items: center;
+      text-align: center;
+
+      .publicCategoryName {
+        font-size: 1em;
+        margin: auto;
+        width: 125px;
+      }
+
+      .activeUsers {
+        font-size: 1em;
+        margin: auto;
+        width: 125px;
+      }
+
+      .secondaryButton {
+        border-radius: 5px;
+        font-size: 0.75em;
+        padding: 5px 25px;
+        width: 125px;
+        margin: auto;
+      }
+    }
+  }
+}

@@ -1,4 +1,3 @@
-import ChatMessages from "../../channels/ChatMessages";
 import { Channel, Message, UserList } from "../../types";
 type Action = {
   type: string;
@@ -20,13 +19,15 @@ const ChannelList = (state = [], action: Action) => {
     case "CHANNEL_MESSAGE_ADD":
       return state.map((channel: Channel) => {
         const msg = action.payload as Message;
-        if (channel.id !== msg.channel.id) return channel;
-        return { ...channel, messages: [...channel.messages, msg] };
+        const msgTemp = { ...msg };
+        delete msgTemp.channel;
+        if (channel.id !== msg.channel?.id) return channel;
+        return { ...channel, messages: [...channel.messages, msgTemp] };
       });
     case "CHANNEL_MESSAGE_SET":
       return state.map((channel: Channel) => {
         const messages: Message[] = action.payload as Message[];
-        if (channel.id !== messages[0].channel.id) return channel;
+        if (channel.id !== messages[0].channel?.id) return channel;
         else return { ...channel, messages };
       });
     default:

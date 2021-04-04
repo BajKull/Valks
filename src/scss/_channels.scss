@@ -1,5 +1,7 @@
 .channels {
   height: calc(100vh - 70px);
-  background-color: $purple;
   display: flex;
+  overflow-y: hidden;
+  min-height: 350px;
+  background-color: lighten($purple, 2);
 }

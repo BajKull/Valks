@@ -53,10 +53,9 @@
       margin: 50px auto 100px;
       display: flex;
       justify-content: center;
-      button {
+      button,
+      a {
         margin: 0 10px;
-        width: 45%;
-        max-width: 400px;
         font-size: clamp(14px, 1.5vw, 22px);
       }
     }

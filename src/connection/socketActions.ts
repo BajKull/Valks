@@ -80,4 +80,15 @@ export const deleteNotification = (
   socket.emit("deleteNotification", user, notification);
 };
 
+export const joinPublicChannel = (
+  user: User,
+  category: string,
+  callback: (res: SocketCallback) => void
+) => {
+  const data = { user, category };
+  socket.emit("joinPublic", data, (res: SocketCallback) => {
+    callback(res);
+  });
+};
+
 export { socket };

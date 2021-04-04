@@ -10,17 +10,17 @@ export default function Socket() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log(socket);
     if (!socket) return;
     socket.on("userList", (data: UserList) => {
       dispatch(channelUserList(data));
     });
     socket.on("message", (data: Message) => {
-      console.log("asd");
+      console.log(data);
       dispatch(channelMessagesAdd(data));
+      const body = document.querySelector(".chatMessages");
+      if (body) body.scrollTop = body.scrollHeight;
     });
     socket.on("notification", (data: UserNotification) => {
-      console.log(data);
       dispatch(addNotification(data));
     });
   }, [dispatch]);
