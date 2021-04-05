@@ -1,0 +1,16 @@
+.catOfDay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .category {
+    margin-bottom: 20px;
+    .tag {
+      padding: 3px 10px;
+      background-color: $blue;
+      border-radius: 5px;
+      margin-left: 5px;
+      font-weight: 400;
+    }
+  }
+}

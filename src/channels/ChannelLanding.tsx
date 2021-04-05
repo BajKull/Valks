@@ -1,5 +1,6 @@
 import React from "react";
 import CreatePR from "../components/CreatePR";
+import JoinCatOfDay from "../components/JoinCatOfDay";
 import JoinPublic from "../components/JoinPublic";
 import { ReactComponent as Logo } from "../images/logo.svg";
 import { images } from "./ChannelLandingBg";
@@ -12,10 +13,6 @@ const bgImage = (category: string) => {
 export default function ChannelLanding() {
   return (
     <div className="channelLanding">
-      <div className="info">
-        <JoinPublic />
-        <CreatePR />
-      </div>
       <div className="content">
         {bgImage("space")}
         <div className="wrapper">
@@ -23,12 +20,11 @@ export default function ChannelLanding() {
             Click on a channel to join the conversation!
           </h2>
           <Logo className="logo" />
-          <div className="recommended">
-            <h3 className="category">
-              Category of the day <span className="tag">Space</span>
-            </h3>
-            <button className="secondaryButton">Join now!</button>
+          <div className="actions">
+            <JoinPublic />
+            <CreatePR />
           </div>
+          <JoinCatOfDay />
         </div>
       </div>
     </div>

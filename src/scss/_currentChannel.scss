@@ -14,7 +14,7 @@
       height: 20px;
       position: absolute;
       top: 15px;
-      right: 15px;
+      right: 25px;
       stroke: white;
       cursor: pointer;
     }
@@ -29,11 +29,12 @@
 
     .secondaryButton {
       position: absolute;
-      left: 15px;
+      left: 25px;
       top: 50%;
       font-size: 0.75em;
       padding: 5px 25px;
       transform: translateY(-50%);
+      border-radius: 4px;
     }
   }
 
@@ -67,9 +68,14 @@
         padding: 10px 25px;
         font-size: 0.9em;
         word-break: break-all;
+
+        &:nth-of-type(2n) {
+          background-color: lighten($purple, 3);
+        }
         &:hover {
           background-color: $purple;
         }
+
         .messageInfo {
           display: flex;
 
