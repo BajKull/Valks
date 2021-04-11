@@ -26,6 +26,7 @@ const useAuth = () => {
               user.photoURL ||
               "https://socetlasers.eu/wp-content/uploads/2020/10/placeholder-1-e1533569576673.png",
             publicChannels: [],
+            blockList: [],
           };
           dispatch(loginStatus(u));
           activeUser(u, (res: SocketCallback) => {

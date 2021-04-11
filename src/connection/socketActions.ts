@@ -102,4 +102,9 @@ export const leaveChannel = (
   });
 };
 
+export const blockUser = (user: User, blocked: string) => {
+  const data = { user, blocked };
+  socket.emit("blockUser", data);
+};
+
 export { socket };

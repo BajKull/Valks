@@ -5,6 +5,7 @@ export type User = {
   email: string;
   avatar: string;
   publicChannels: string[];
+  blockList: string[];
 };
 
 export type Message = {

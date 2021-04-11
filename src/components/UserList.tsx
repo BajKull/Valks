@@ -1,16 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { User } from "../types";
+import UserListSelected from "./UserListSelected";
+import UserListUser from "./UserListUser";
 
 export default function UserList({ users }: { users: User[] }) {
+  const [selectedUser, setSelectedUser] = useState<User | null>(null);
   return (
     <div className="userList">
       <h2 className="userListTitle">Users</h2>
       {users.map((user) => (
-        <div className="user">
-          <img src={user.avatar} alt={user.name} className="userAvatar" />
-          <p className="userName">{user.name}</p>
-        </div>
+        <UserListUser user={user} selUser={setSelectedUser} />
       ))}
+      {selectedUser && (
+        <UserListSelected user={selectedUser} selUser={setSelectedUser} />
+      )}
     </div>
   );
 }

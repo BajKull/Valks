@@ -15,7 +15,6 @@ export default function Socket() {
       dispatch(channelUserList(data));
     });
     socket.on("message", (data: Message) => {
-      console.log(data);
       dispatch(channelMessagesAdd(data));
       const body = document.querySelector(".chatMessages");
       if (body) body.scrollTop = body.scrollHeight;

@@ -1046,6 +1046,7 @@
           flex-direction: column;
   height: 100%;
   background-color: #3e3c5d;
+  position: relative;
 }
 
 .userList .userListTitle {
@@ -1054,6 +1055,56 @@
   margin: 15px;
   font-weight: 400;
   color: white;
+}
+
+.userList .userAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.userList .userSelected {
+  position: absolute;
+  top: 50px;
+  left: -250px;
+  width: 200px;
+  background-color: #29283e;
+  padding: 25px;
+  border-radius: 5px;
+  z-index: 5;
+}
+
+.userList .userSelected .close {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  top: 15px;
+  right: 15px;
+  stroke: white;
+  cursor: pointer;
+}
+
+.userList .userSelected .info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.userList .userSelected .info .userName {
+  color: white;
+  margin-left: 10px;
+}
+
+.userList .userSelected .mainButton {
+  border-radius: 5px;
+  margin-top: 25px;
+  padding: 5px;
+  width: 100%;
 }
 
 .userList .user {
