@@ -1,7 +1,14 @@
 import { Channel, Message, UserList } from "../../types";
 type Action = {
   type: string;
-  payload: Channel[] | Channel | UserList | Message | Message[] | UserList;
+  payload:
+    | string
+    | Channel[]
+    | Channel
+    | UserList
+    | Message
+    | Message[]
+    | UserList;
 };
 
 const ChannelList = (state = [], action: Action) => {
@@ -10,6 +17,9 @@ const ChannelList = (state = [], action: Action) => {
       return action.payload;
     case "CHANNEL_LIST_ADD":
       return [...state, action.payload];
+    case "CHANNEL_LIST_LEAVE":
+      const id = action.payload as string;
+      return state.filter((channel: Channel) => channel.id !== id);
     case "CHANNEL_USER_LIST":
       return state.map((channel: Channel) => {
         const users: UserList = action.payload as UserList;

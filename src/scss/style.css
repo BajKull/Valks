@@ -736,13 +736,20 @@
 
 .currentChannel .info .secondaryButton {
   position: absolute;
-  left: 25px;
   top: 50%;
   font-size: 0.75em;
   padding: 5px 25px;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
   border-radius: 4px;
+}
+
+.currentChannel .info .invite {
+  left: 25px;
+}
+
+.currentChannel .info .leave {
+  right: 75px;
 }
 
 .currentChannel .content {

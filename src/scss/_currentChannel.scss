@@ -29,12 +29,18 @@
 
     .secondaryButton {
       position: absolute;
-      left: 25px;
       top: 50%;
       font-size: 0.75em;
       padding: 5px 25px;
       transform: translateY(-50%);
       border-radius: 4px;
+    }
+
+    .invite {
+      left: 25px;
+    }
+    .leave {
+      right: 75px;
     }
   }
 

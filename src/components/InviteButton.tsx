@@ -10,7 +10,7 @@ export default function InviteButton() {
   };
 
   return (
-    <button className="secondaryButton" onClick={inviteScreen}>
+    <button className="secondaryButton invite" onClick={inviteScreen}>
       Invite
     </button>
   );

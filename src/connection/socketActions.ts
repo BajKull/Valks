@@ -91,4 +91,15 @@ export const joinPublicChannel = (
   });
 };
 
+export const leaveChannel = (
+  user: User,
+  channel: string,
+  callback: (res: SocketCallback) => void
+) => {
+  const data = { user, channel };
+  socket.emit("leaveChannel", data, (res: SocketCallback) => {
+    callback(res);
+  });
+};
+
 export { socket };
