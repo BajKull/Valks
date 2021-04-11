@@ -14,9 +14,9 @@ export const channelListAdd = (status: Channel) => {
   };
 };
 
-export const channelUserList = (users: UserList) => {
+export const channelUserList = (data: UserList) => {
   return {
     type: "CHANNEL_USER_LIST",
-    payload: users,
+    payload: { users: data.users, channel: data.channel },
   };
 };

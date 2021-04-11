@@ -1027,6 +1027,65 @@
   font-weight: 400;
 }
 
+.userList {
+  min-width: 300px;
+  max-width: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+  background-color: #3e3c5d;
+}
+
+.userList .userListTitle {
+  height: 40px;
+  font-size: 1.6em;
+  margin: 15px;
+  font-weight: 400;
+  color: white;
+}
+
+.userList .user {
+  padding: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: background-color 0.2s;
+  transition: background-color 0.2s;
+  cursor: pointer;
+  color: white;
+  text-decoration: none;
+}
+
+.userList .user:hover {
+  background-color: #33324e;
+}
+
+.userList .user .userAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.userList .user .userName {
+  margin-left: 15px;
+  width: 220px;
+  font-size: 1.15em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-break: break-all;
+}
+
 * {
   padding: 0;
   margin: 0;

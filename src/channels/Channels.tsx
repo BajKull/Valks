@@ -4,7 +4,6 @@ import { Redirect, Route, Switch } from "react-router-dom";
 import PublicChannels from "../components/PublicChannels";
 import ChannelLanding from "./ChannelLanding";
 import ChannelList from "./ChannelList";
-import Notifications from "./Notifications";
 import PrivateChannel from "./PrivateChannel";
 import PublicChannel from "./PublicChannel";
 
@@ -23,7 +22,6 @@ export default function Channel() {
         <Route path="/channels/public/:id" component={PublicChannel} />
         <Route path="/channels/:id" component={PrivateChannel} />
       </Switch>
-      <Notifications />
       {user === "noUser" && <Redirect to="/" />}
     </div>
   );

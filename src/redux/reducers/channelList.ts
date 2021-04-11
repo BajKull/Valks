@@ -1,7 +1,7 @@
 import { Channel, Message, UserList } from "../../types";
 type Action = {
   type: string;
-  payload: Channel[] | Channel | UserList | Message | Message[];
+  payload: Channel[] | Channel | UserList | Message | Message[] | UserList;
 };
 
 const ChannelList = (state = [], action: Action) => {

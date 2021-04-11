@@ -4,6 +4,7 @@ import JoinCatOfDay from "../components/JoinCatOfDay";
 import JoinPublic from "../components/JoinPublic";
 import { ReactComponent as Logo } from "../images/logo.svg";
 import { images } from "./ChannelLandingBg";
+import Notifications from "./Notifications";
 
 const bgImage = (category: string) => {
   const Svg = images.find((img) => img.name === category)?.svg;
@@ -12,21 +13,24 @@ const bgImage = (category: string) => {
 
 export default function ChannelLanding() {
   return (
-    <div className="channelLanding">
-      <div className="content">
-        {bgImage("space")}
-        <div className="wrapper">
-          <h2 className="channelLandingTitle">
-            Click on a channel to join the conversation!
-          </h2>
-          <Logo className="logo" />
-          <div className="actions">
-            <JoinPublic />
-            <CreatePR />
+    <>
+      <div className="channelLanding">
+        <div className="content">
+          {bgImage("space")}
+          <div className="wrapper">
+            <h2 className="channelLandingTitle">
+              Click on a channel to join the conversation!
+            </h2>
+            <Logo className="logo" />
+            <div className="actions">
+              <JoinPublic />
+              <CreatePR />
+            </div>
+            <JoinCatOfDay />
           </div>
-          <JoinCatOfDay />
         </div>
       </div>
-    </div>
+      <Notifications />
+    </>
   );
 }
