@@ -57,6 +57,11 @@
       margin-top: 25px;
       padding: 5px;
       width: 100%;
+
+      &:disabled {
+        background: rgb(120, 120, 120);
+        cursor: not-allowed;
+      }
     }
   }
 

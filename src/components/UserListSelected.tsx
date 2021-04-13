@@ -8,9 +8,9 @@ export default function UserListSelected(props: any) {
   const dispatch = useDispatch();
   const user: User = props.user;
   const loggedUser = useSelector((state: RootStateOrAny) => state.loginStatus);
-  const blocked = useSelector((state: RootStateOrAny) => state.blockedUsers);
 
   const blockUser = () => {
+    if (loggedUser.email === user.email) return;
     dispatch(blockUserAction(loggedUser, user.email));
   };
 
@@ -21,8 +21,12 @@ export default function UserListSelected(props: any) {
         <img src={user.avatar} alt={user.name} className="userAvatar" />
         <p className="userName">{user.name}</p>
       </div>
-      <button className="mainButton" onClick={blockUser}>
-        {blocked.includes(user.email) ? "Unblock" : "Block"}
+      <button
+        className="mainButton"
+        disabled={user.email === loggedUser.email}
+        onClick={blockUser}
+      >
+        {loggedUser.blockList.includes(user.email) ? "Unblock" : "Block"}
       </button>
     </div>
   );

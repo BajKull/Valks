@@ -1,13 +1,21 @@
 import React from "react";
+import { RootStateOrAny, useSelector } from "react-redux";
 import { Channel, Message } from "../types";
 import ChatMessage from "./ChatMessage";
 
 export default function ChatMessages({ channel }: { channel: Channel }) {
+  const blockList: string[] = useSelector(
+    (state: RootStateOrAny) => state.loginStatus.blockList
+  );
+  console.log(blockList);
+  console.log(channel.messages);
   return (
     <div className="chatMessages">
-      {channel.messages.map((message: Message) => (
-        <ChatMessage msg={message} key={message.id} />
-      ))}
+      {channel.messages
+        .filter((msg) => !blockList.includes(msg.author.email))
+        .map((message: Message) => (
+          <ChatMessage msg={message} key={message.id} />
+        ))}
     </div>
   );
 }

@@ -1107,6 +1107,11 @@
   width: 100%;
 }
 
+.userList .userSelected .mainButton:disabled {
+  background: #787878;
+  cursor: not-allowed;
+}
+
 .userList .user {
   padding: 15px;
   display: -webkit-box;
