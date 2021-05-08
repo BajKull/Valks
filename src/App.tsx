@@ -10,8 +10,8 @@ import Navbar from "./navbar/Navbar";
 import Channels from "./channels/Channels";
 import "./scss/style.css";
 import InviteToRoom from "./components/InviteToRoom";
-import Socket from "./connection/Socket";
 import LoadingScreen from "./loading/LoadingScreen";
+import Socket from "./connection/Socket";
 
 export default function App() {
   const modalScreen = useSelector((state: RootStateOrAny) => state.modalScreen);
