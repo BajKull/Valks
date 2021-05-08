@@ -252,6 +252,67 @@
   margin-left: auto;
 }
 
+.navbar ul .user .userPanelContainer {
+  position: relative;
+}
+
+.navbar ul .user .userPanelContainer .userAvatar {
+  display: block;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0.8;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+}
+
+.navbar ul .user .userPanelContainer .userAvatar:hover {
+  opacity: 1;
+}
+
+.navbar ul .user .userPanelContainer .userPanel {
+  position: absolute;
+  background-color: #373552;
+  right: 0;
+  top: 50px;
+  width: 200px;
+  padding: 5px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-radius: 5px;
+  z-index: 100;
+}
+
+.navbar ul .user .userPanelContainer .userPanel .userPanelPadding {
+  padding: 10px 0;
+}
+
+.navbar ul .user .userPanelContainer .userPanel .userPanelEl {
+  width: 100%;
+  cursor: pointer;
+  text-align: center;
+  -webkit-transition: background-color 0.2s;
+  transition: background-color 0.2s;
+}
+
+.navbar ul .user .userPanelContainer .userPanel .userPanelEl:hover {
+  background-color: #312f49;
+  color: #abedd8;
+}
+
+.navbar ul .user .userPanelContainer .userPanel .userPanelEl a {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
 .modal {
   position: fixed;
   width: 100%;
