@@ -43,7 +43,7 @@ export const createRoom = (
 export const sendMessage = (
   msg: string,
   author: User,
-  channel: Channel,
+  channel: string,
   callback: (res: SocketCallback) => void
 ) => {
   const data: Message = { msg, author, channel, system: false };

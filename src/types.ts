@@ -13,7 +13,7 @@ export type Message = {
   author: User;
   date?: Date;
   msg: string;
-  channel?: Channel;
+  channel?: string;
   system: boolean;
 };
 

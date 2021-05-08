@@ -31,13 +31,13 @@ const ChannelList = (state = [], action: Action) => {
         const msg = action.payload as Message;
         const msgTemp = { ...msg };
         delete msgTemp.channel;
-        if (channel.id !== msg.channel?.id) return channel;
+        if (channel.id !== msg.channel) return channel;
         return { ...channel, messages: [...channel.messages, msgTemp] };
       });
     case "CHANNEL_MESSAGE_SET":
       return state.map((channel: Channel) => {
         const messages: Message[] = action.payload as Message[];
-        if (channel.id !== messages[0].channel?.id) return channel;
+        if (channel.id !== messages[0].channel) return channel;
         else return { ...channel, messages };
       });
     default:
