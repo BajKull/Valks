@@ -1,0 +1,123 @@
+.userProfile {
+  background-color: $purple;
+  width: 80%;
+  min-height: calc(100vh - 70px);
+  padding: 0 10%;
+  color: white;
+
+  .deleteModal {
+    .modal {
+      .content {
+        padding: 0;
+
+        .info {
+          background-color: $error;
+          padding: 25px;
+          border-radius: 5px 5px 0 0;
+          p {
+            font-size: 0.85em;
+          }
+        }
+        .content {
+          // width: calc(100% - 50px);
+          padding: 25px;
+
+          .deleteName {
+            color: rgb(200, 200, 200);
+            margin-bottom: 25px;
+            font-size: 1.25em;
+          }
+
+          label {
+            font-size: 0.9em;
+            b {
+              font-weight: 500;
+            }
+          }
+
+          input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            background: $darkPurple;
+            border: 0;
+            border-radius: 5px;
+            color: white;
+            margin: 10px 0;
+
+            &:focus {
+              outline: none;
+            }
+          }
+
+          .actions {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+
+            button {
+              margin: 0 10px;
+              border-radius: 5px;
+            }
+
+            .secondaryButton {
+              background: $error;
+              &:disabled {
+                background: $darkPurple;
+                cursor: not-allowed;
+
+                &:hover {
+                  background: $darkPurple;
+                }
+              }
+              &:hover {
+                background: darken($error, 5);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .userProfileTitle {
+    padding-top: 25px;
+    text-align: center;
+    font-weight: 400;
+    font-size: 3em;
+  }
+
+  .section {
+    width: 100%;
+    margin: 50px 0;
+
+    .sectionTitle {
+      font-size: 2em;
+    }
+
+    .content {
+      display: flex;
+      align-items: center;
+      margin-top: 25px;
+      background-color: $darkPurple;
+      padding: 25px;
+      border-radius: 5px;
+
+      .userAvatar {
+        width: 128px;
+        height: 128px;
+        border-radius: 50%;
+      }
+      .info {
+        margin-left: 50px;
+
+        .tip {
+          margin-top: 10px;
+        }
+      }
+
+      .mainButton {
+        border-radius: 5px;
+      }
+    }
+  }
+}

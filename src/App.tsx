@@ -12,6 +12,7 @@ import "./scss/style.css";
 import InviteToRoom from "./components/InviteToRoom";
 import LoadingScreen from "./loading/LoadingScreen";
 import Socket from "./connection/Socket";
+import Profile from "./profile/Profile";
 
 export default function App() {
   const modalScreen = useSelector((state: RootStateOrAny) => state.modalScreen);
@@ -29,6 +30,7 @@ export default function App() {
         <Navbar />
         <Route path="/" exact component={Landing} />
         <Route path="/channels" component={Channels} />
+        <Route path="/profile" component={Profile} />
       </Router>
     </>
   );

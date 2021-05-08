@@ -26,7 +26,6 @@ export default function Navbar() {
     const clickHide = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       const accepted = ["userAvatar", "userPanel", "userPanelEl"];
-      console.log(target.classList[0]);
       if (accepted.includes(target.classList[0])) return;
       setShowPanel(false);
     };
@@ -64,15 +63,6 @@ export default function Navbar() {
                     <li className="userPanelEl">
                       <Link className="userPanelPadding" to="/profile">
                         Profile
-                      </Link>
-                    </li>
-                    <li className="userPanelEl">
-                      {" "}
-                      <Link
-                        className="userPanelPadding"
-                        to="/profile/settings "
-                      >
-                        Settings
                       </Link>
                     </li>
                     <li

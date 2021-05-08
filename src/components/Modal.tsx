@@ -4,7 +4,7 @@ import { ReactComponent as Close } from "../images/close.svg";
 import { modalScreen } from "../redux/actions/modalScreen";
 
 type ModalProps = {
-  children: JSX.Element[];
+  children: JSX.Element[] | JSX.Element;
 };
 
 export default function Modal(props: ModalProps) {
@@ -14,6 +14,7 @@ export default function Modal(props: ModalProps) {
     const target = e.target as HTMLElement;
     e.stopPropagation();
     if (target.classList.contains("modal")) dispatch(modalScreen(""));
+    console.log(target);
   };
 
   const closeWindowKey = (e: React.KeyboardEvent) => {

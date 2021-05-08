@@ -275,7 +275,7 @@
   position: absolute;
   background-color: #373552;
   right: 0;
-  top: 50px;
+  top: 55px;
   width: 200px;
   padding: 5px 0;
   display: -webkit-box;
@@ -1216,6 +1216,139 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   word-break: break-all;
+}
+
+.userProfile {
+  background-color: #48466d;
+  width: 80%;
+  min-height: calc(100vh - 70px);
+  padding: 0 10%;
+  color: white;
+}
+
+.userProfile .deleteModal .modal .content {
+  padding: 0;
+}
+
+.userProfile .deleteModal .modal .content .info {
+  background-color: #b00020;
+  padding: 25px;
+  border-radius: 5px 5px 0 0;
+}
+
+.userProfile .deleteModal .modal .content .info p {
+  font-size: 0.85em;
+}
+
+.userProfile .deleteModal .modal .content .content {
+  padding: 25px;
+}
+
+.userProfile .deleteModal .modal .content .content .deleteName {
+  color: #c8c8c8;
+  margin-bottom: 25px;
+  font-size: 1.25em;
+}
+
+.userProfile .deleteModal .modal .content .content label {
+  font-size: 0.9em;
+}
+
+.userProfile .deleteModal .modal .content .content label b {
+  font-weight: 500;
+}
+
+.userProfile .deleteModal .modal .content .content input {
+  width: calc(100% - 20px);
+  padding: 10px;
+  background: #373552;
+  border: 0;
+  border-radius: 5px;
+  color: white;
+  margin: 10px 0;
+}
+
+.userProfile .deleteModal .modal .content .content input:focus {
+  outline: none;
+}
+
+.userProfile .deleteModal .modal .content .content .actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 10px;
+}
+
+.userProfile .deleteModal .modal .content .content .actions button {
+  margin: 0 10px;
+  border-radius: 5px;
+}
+
+.userProfile .deleteModal .modal .content .content .actions .secondaryButton {
+  background: #b00020;
+}
+
+.userProfile .deleteModal .modal .content .content .actions .secondaryButton:disabled {
+  background: #373552;
+  cursor: not-allowed;
+}
+
+.userProfile .deleteModal .modal .content .content .actions .secondaryButton:disabled:hover {
+  background: #373552;
+}
+
+.userProfile .deleteModal .modal .content .content .actions .secondaryButton:hover {
+  background: #97001b;
+}
+
+.userProfile .userProfileTitle {
+  padding-top: 25px;
+  text-align: center;
+  font-weight: 400;
+  font-size: 3em;
+}
+
+.userProfile .section {
+  width: 100%;
+  margin: 50px 0;
+}
+
+.userProfile .section .sectionTitle {
+  font-size: 2em;
+}
+
+.userProfile .section .content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 25px;
+  background-color: #373552;
+  padding: 25px;
+  border-radius: 5px;
+}
+
+.userProfile .section .content .userAvatar {
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+}
+
+.userProfile .section .content .info {
+  margin-left: 50px;
+}
+
+.userProfile .section .content .info .tip {
+  margin-top: 10px;
+}
+
+.userProfile .section .content .mainButton {
+  border-radius: 5px;
 }
 
 * {
