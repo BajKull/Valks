@@ -37,6 +37,10 @@
     padding: 15px;
   }
 
+  .pointer {
+    cursor: pointer;
+  }
+
   .notification {
     position: relative;
     padding: 30px 15px;
@@ -62,6 +66,10 @@
 
     .message {
       line-height: 1.25;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
 
     .date {

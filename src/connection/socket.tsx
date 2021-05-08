@@ -1,13 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { channelUserList } from "../redux/actions/channelList";
 import { channelMessagesAdd } from "../redux/actions/channelMessages";
 import { addNotification } from "../redux/actions/notifications";
 import { Message, UserList, UserNotification } from "../types";
 import { socket } from "./socketActions";
+import sound from "../notification.wav";
 
 export default function Socket() {
   const dispatch = useDispatch();
+  const [audio] = useState(new Audio(sound));
 
   useEffect(() => {
     if (!socket) return;
@@ -20,9 +22,17 @@ export default function Socket() {
       if (body) body.scrollTop = body.scrollHeight;
     });
     socket.on("notification", (data: UserNotification) => {
+      if (Notification.permission === "granted") {
+        new Notification(data.message);
+      } else if (Notification.permission === "default") {
+        Notification.requestPermission().then((p) => {
+          if (p === "granted") new Notification(data.message);
+        });
+      }
+      audio.play();
       dispatch(addNotification(data));
     });
-  }, [dispatch]);
+  }, [dispatch, audio]);
 
   return <></>;
 }

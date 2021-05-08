@@ -8,6 +8,7 @@ import {
 } from "../redux/actions/notifications";
 import { displayDate } from "../components/displayDate";
 import { deleteNotification } from "../connection/socketActions";
+import { useHistory } from "react-router";
 
 type NotificationProps = {
   notification: UserNotification;
@@ -15,9 +16,11 @@ type NotificationProps = {
 
 export default function Notification(props: NotificationProps) {
   const dispatch = useDispatch();
+  const history = useHistory();
   const user = useSelector((state: RootStateOrAny) => state.loginStatus);
 
-  const delNotification = () => {
+  const delNotification = (e: React.MouseEvent) => {
+    e.stopPropagation();
     dispatch(removeNotification(props.notification));
     deleteNotification(user, props.notification);
   };
@@ -26,9 +29,13 @@ export default function Notification(props: NotificationProps) {
     dispatch(acceptNotification(props.notification));
   };
 
+  const goToChannel = () => {
+    history.push(`/channels/${props.notification.channelId}`);
+  };
+
   if (props.notification.type === "mention")
     return (
-      <div className="notification">
+      <div className="notification pointer" onClick={goToChannel}>
         <Close className="close" onClick={delNotification} />
         <p className="message">{props.notification.message}</p>
         <p className="date">{displayDate(props.notification.date)}</p>
