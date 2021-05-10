@@ -15,3 +15,25 @@
   opacity: 0;
   transition: 0.5s;
 }
+
+.fromBottom-enter {
+  transform: translateY(50%);
+  opacity: 0;
+}
+
+.fromBottom-enter-active {
+  transform: translateY(0);
+  opacity: 1;
+  transition: 0.5s;
+}
+
+.fromBottom-exit {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.fromBottom-exit-active {
+  transform: translateY(50%);
+  opacity: 0;
+  transition: 0.5s;
+}

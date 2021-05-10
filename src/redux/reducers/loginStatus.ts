@@ -6,6 +6,8 @@ const LoginStatus = (state: User | null = null, action: Action) => {
   switch (action.type) {
     case "CHANGE_LOGIN_STATUS":
       return action.payload;
+    case "CHANGE_AVATAR":
+      return { ...state, avatar: action.payload };
     case "BLOCK_USER":
       const index = state?.blockList.findIndex((u) => u === action.payload);
       if (!state) return state;

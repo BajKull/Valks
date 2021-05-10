@@ -19,7 +19,7 @@
           }
         }
         .content {
-          // width: calc(100% - 50px);
+          width: calc(100% - 50px);
           padding: 25px;
 
           .deleteName {
@@ -109,9 +109,13 @@
       }
       .info {
         margin-left: 50px;
+        .hidden {
+          display: none;
+        }
 
         .tip {
           margin-top: 10px;
+          font-size: 0.8em;
         }
       }
 

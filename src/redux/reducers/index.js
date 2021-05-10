@@ -4,6 +4,7 @@ import LoginStatus from "./loginStatus";
 import ChannelList from "./channelList";
 import Notifications from "./notifications";
 import LoadingScreen from "./loadingScreen";
+import DisplayError from "./displayError";
 
 const allReducers = combineReducers({
   modalScreen: ModalScreen,
@@ -11,6 +12,7 @@ const allReducers = combineReducers({
   channelList: ChannelList,
   notifications: Notifications,
   loadingScreen: LoadingScreen,
+  displayError: DisplayError,
 });
 
 export { allReducers };

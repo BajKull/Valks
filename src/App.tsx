@@ -13,16 +13,22 @@ import InviteToRoom from "./components/InviteToRoom";
 import LoadingScreen from "./loading/LoadingScreen";
 import Socket from "./connection/Socket";
 import Profile from "./profile/Profile";
+import DisplayError from "./components/DisplayError";
 
 export default function App() {
+  const user = useSelector((state: RootStateOrAny) => state.loginStatus);
   const modalScreen = useSelector((state: RootStateOrAny) => state.modalScreen);
+  const displayError = useSelector(
+    (state: RootStateOrAny) => state.displayError
+  );
   useAuth();
 
   return (
     <>
       <Router>
         <LoadingScreen />
-        <Socket />
+        <DisplayError />
+        {user && user !== "noUser" && <Socket />}
         {modalScreen === "signin" && <Login />}
         {modalScreen === "signup" && <Register />}
         {modalScreen === "createRoom" && <CreatePRModal />}

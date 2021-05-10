@@ -1,5 +1,4 @@
 export type User = {
-  id: string;
   socketId?: string;
   name: string;
   email: string;

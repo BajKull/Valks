@@ -19,16 +19,12 @@ type CreateRoom = {
 };
 
 export const activeUser = (
-  user: User,
+  email: string,
   callback: (res: SocketCallback) => void
 ) => {
-  socket.emit(
-    "activeUser",
-    { ...user, socketId: socket.id },
-    (res: SocketCallback) => {
-      callback(res);
-    }
-  );
+  socket.emit("activeUser", email, (res: SocketCallback) => {
+    callback(res);
+  });
 };
 
 export const createRoom = (
@@ -105,6 +101,11 @@ export const leaveChannel = (
 export const blockUser = (user: User, blocked: string) => {
   const data = { user, blocked };
   socket.emit("blockUser", data);
+};
+
+export const changeAvatar = (user: User, url: string) => {
+  const data = { user, url };
+  socket.emit("changeAvatar", data);
 };
 
 export { socket };

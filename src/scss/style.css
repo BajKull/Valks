@@ -71,6 +71,34 @@
   transition: 0.5s;
 }
 
+.fromBottom-enter {
+  -webkit-transform: translateY(50%);
+          transform: translateY(50%);
+  opacity: 0;
+}
+
+.fromBottom-enter-active {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  opacity: 1;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.fromBottom-exit {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  opacity: 1;
+}
+
+.fromBottom-exit-active {
+  -webkit-transform: translateY(50%);
+          transform: translateY(50%);
+  opacity: 0;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
 .loading {
   display: inline-block;
   position: relative;
@@ -1241,6 +1269,7 @@
 }
 
 .userProfile .deleteModal .modal .content .content {
+  width: calc(100% - 50px);
   padding: 25px;
 }
 
@@ -1343,12 +1372,44 @@
   margin-left: 50px;
 }
 
+.userProfile .section .content .info .hidden {
+  display: none;
+}
+
 .userProfile .section .content .info .tip {
   margin-top: 10px;
+  font-size: 0.8em;
 }
 
 .userProfile .section .content .mainButton {
   border-radius: 5px;
+}
+
+.errorBox {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  margin-left: -150px;
+  width: 300px;
+  background-color: #b00020;
+  color: white;
+  border-radius: 5px;
+}
+
+.errorBox .content {
+  position: relative;
+  height: 100%;
+  padding: 25px;
+}
+
+.errorBox .content .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  stroke: white;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
 }
 
 * {
