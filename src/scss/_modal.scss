@@ -26,6 +26,7 @@
       border-radius: 10px 10px 0 0;
       padding: 30px 25px;
       width: calc(100% - 50px);
+      z-index: 3;
     }
 
     .close {
@@ -36,6 +37,7 @@
       width: 16px;
       height: 16px;
       cursor: pointer;
+      z-index: 5;
     }
 
     .tip {
@@ -57,16 +59,27 @@
 
     .interfaceSmall {
       height: 250px;
+      display: flex;
+      align-items: center;
     }
 
     .interfaceBig {
       height: 320px;
+      max-height: 320px;
+      display: flex;
+      align-items: center;
     }
 
     .interface {
       display: flex;
       flex-direction: column;
       width: 100%;
+
+      .complete {
+        fill: white;
+        height: 200px;
+        margin-top: 50px;
+      }
 
       form {
         display: flex;

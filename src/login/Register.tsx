@@ -7,6 +7,8 @@ import { ReactComponent as Close } from "../images/close.svg";
 import Loading from "../loading/Loading";
 import { loginStatus } from "../redux/actions/loginStatus";
 import Modal from "../components/Modal";
+import { registerUser } from "../connection/socketActions";
+import { User } from "../types";
 
 export default function Register() {
   const [email, setEmail] = useState("");
@@ -29,20 +31,26 @@ export default function Register() {
     auth
       .createUserWithEmailAndPassword(email, password)
       .then((res) => {
-        setLoading(false);
-        dispatch(loginStatus(res.user));
-        dispatch(modalScreen(""));
         const currentUser = res.user;
-        const userName = email.split("@")[0];
-
         if (currentUser) {
-          currentUser?.updateProfile({ displayName: userName });
-          firestore.collection("users").doc(userName).set({
-            notifications: [],
+          const userName = email.split("@")[0];
+          const user = {
+            avatar:
+              "https://firebasestorage.googleapis.com/v0/b/licencjat-62707.appspot.com/o/logo.png?alt=media&token=8d99e4c3-fd23-477d-a4f2-de90967b1ba4",
+            blockList: [],
             channels: [],
             color: "rgb(255, 255, 255)",
-            name: userName,
             email,
+            name: userName,
+            notifications: [],
+          };
+          registerUser(user, (xd) => {
+            console.log(xd);
+            setLoading(false);
+            dispatch(loginStatus(user));
+            dispatch(modalScreen(""));
+            currentUser?.updateProfile({ displayName: userName });
+            firestore.collection("users").doc(userName).set(user);
           });
         }
       })

@@ -18,5 +18,6 @@ app.initializeApp(config);
 const firestore = app.firestore();
 const storage = app.storage();
 const auth = app.auth();
+const credential = app.auth;
 
-export { firestore, auth, storage };
+export { firestore, auth, storage, credential };

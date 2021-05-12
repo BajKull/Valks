@@ -14,7 +14,6 @@ export default function Modal(props: ModalProps) {
     const target = e.target as HTMLElement;
     e.stopPropagation();
     if (target.classList.contains("modal")) dispatch(modalScreen(""));
-    console.log(target);
   };
 
   const closeWindowKey = (e: React.KeyboardEvent) => {

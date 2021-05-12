@@ -18,6 +18,16 @@ type CreateRoom = {
   category: string;
 };
 
+export const registerUser = (user: any, callback: (res: boolean) => void) => {
+  socket.emit("register", user, (res: boolean) => {
+    callback(res);
+  });
+};
+
+export const deleteAccount = (user: any) => {
+  socket.emit("deleteAccount", user);
+};
+
 export const activeUser = (
   email: string,
   callback: (res: SocketCallback) => void
@@ -61,10 +71,11 @@ export const sendInvitation = (
 };
 
 export const acceptInvitation = (
-  invitation: UserNotification,
+  user: User,
+  invite: UserNotification,
   callback: (res: SocketCallback) => void
 ) => {
-  socket.emit("acceptInvitation", invitation, (res: SocketCallback) => {
+  socket.emit("acceptInvitation", { user, invite }, (res: SocketCallback) => {
     callback(res);
   });
 };

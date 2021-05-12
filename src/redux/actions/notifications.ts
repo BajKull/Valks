@@ -1,6 +1,6 @@
 import { channelListAdd } from "./channelList";
 import { acceptInvitation } from "../../connection/socketActions";
-import { SocketCallback, UserNotification } from "../../types";
+import { SocketCallback, User, UserNotification } from "../../types";
 
 export const addNotification = (notification: UserNotification) => {
   return {
@@ -23,9 +23,12 @@ export const setNotifications = (notifications: UserNotification[]) => {
   };
 };
 
-export const acceptNotification = (notification: UserNotification) => {
+export const acceptNotification = (
+  notification: UserNotification,
+  user: User
+) => {
   return async (dispatch: any) => {
-    acceptInvitation(notification, (callback: SocketCallback) => {
+    acceptInvitation(user, notification, (callback: SocketCallback) => {
       if (callback.type === "success") {
         console.log(callback);
         dispatch(channelListAdd(callback.data));

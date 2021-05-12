@@ -10,6 +10,11 @@
       .content {
         padding: 0;
 
+        .loading {
+          z-index: 3;
+          margin-top: -150px;
+        }
+
         .info {
           background-color: $error;
           padding: 25px;
@@ -21,6 +26,10 @@
         .content {
           width: calc(100% - 50px);
           padding: 25px;
+          position: initial;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
 
           .deleteName {
             color: rgb(200, 200, 200);
@@ -35,7 +44,7 @@
             }
           }
 
-          input {
+          .formInput {
             width: calc(100% - 20px);
             padding: 10px;
             background: $darkPurple;
@@ -87,7 +96,7 @@
   }
 
   .section {
-    width: 100%;
+    width: 60%;
     margin: 50px 0;
 
     .sectionTitle {
@@ -109,6 +118,20 @@
       }
       .info {
         margin-left: 50px;
+        position: relative;
+
+        .progressBar {
+          position: absolute;
+          bottom: -25px;
+          left: 0;
+          width: 100%;
+          .progress {
+            height: 10px;
+            border-radius: 5px;
+            background-color: $blue;
+            transition: width 0.5s;
+          }
+        }
         .hidden {
           display: none;
         }

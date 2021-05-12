@@ -377,6 +377,7 @@
   border-radius: 10px 10px 0 0;
   padding: 30px 25px;
   width: calc(100% - 50px);
+  z-index: 3;
 }
 
 .modal .content .close {
@@ -387,6 +388,7 @@
   width: 16px;
   height: 16px;
   cursor: pointer;
+  z-index: 5;
 }
 
 .modal .content .tip {
@@ -408,10 +410,23 @@
 
 .modal .content .interfaceSmall {
   height: 250px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .modal .content .interfaceBig {
   height: 320px;
+  max-height: 320px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .modal .content .interface {
@@ -423,6 +438,12 @@
       -ms-flex-direction: column;
           flex-direction: column;
   width: 100%;
+}
+
+.modal .content .interface .complete {
+  fill: white;
+  height: 200px;
+  margin-top: 50px;
 }
 
 .modal .content .interface form {
@@ -1258,6 +1279,11 @@
   padding: 0;
 }
 
+.userProfile .deleteModal .modal .content .loading {
+  z-index: 3;
+  margin-top: -150px;
+}
+
 .userProfile .deleteModal .modal .content .info {
   background-color: #b00020;
   padding: 25px;
@@ -1271,6 +1297,17 @@
 .userProfile .deleteModal .modal .content .content {
   width: calc(100% - 50px);
   padding: 25px;
+  position: initial;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .userProfile .deleteModal .modal .content .content .deleteName {
@@ -1287,7 +1324,7 @@
   font-weight: 500;
 }
 
-.userProfile .deleteModal .modal .content .content input {
+.userProfile .deleteModal .modal .content .content .formInput {
   width: calc(100% - 20px);
   padding: 10px;
   background: #373552;
@@ -1297,7 +1334,7 @@
   margin: 10px 0;
 }
 
-.userProfile .deleteModal .modal .content .content input:focus {
+.userProfile .deleteModal .modal .content .content .formInput:focus {
   outline: none;
 }
 
@@ -1341,7 +1378,7 @@
 }
 
 .userProfile .section {
-  width: 100%;
+  width: 60%;
   margin: 50px 0;
 }
 
@@ -1370,6 +1407,22 @@
 
 .userProfile .section .content .info {
   margin-left: 50px;
+  position: relative;
+}
+
+.userProfile .section .content .info .progressBar {
+  position: absolute;
+  bottom: -25px;
+  left: 0;
+  width: 100%;
+}
+
+.userProfile .section .content .info .progressBar .progress {
+  height: 10px;
+  border-radius: 5px;
+  background-color: #3d84a8;
+  -webkit-transition: width 0.5s;
+  transition: width 0.5s;
 }
 
 .userProfile .section .content .info .hidden {

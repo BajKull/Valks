@@ -14,17 +14,21 @@ export const loginStatus = (status: any) => {
 export const activeUserAction = (email: string) => {
   return async (dispatch: any) => {
     activeUser(email, (callback: SocketCallback) => {
-      const user: User = {
-        name: callback.data.name,
-        email: callback.data.email,
-        avatar: callback.data.avatar,
-        publicChannels: [],
-        blockList: callback.data.blockList,
-      };
-      dispatch(loginStatus(user));
-      dispatch(setNotifications(callback.data.notifications));
-      dispatch(channelListSet(callback.data.channels));
-      dispatch(changeLoadingScreen(false));
+      console.log(callback);
+      if (callback.type === "success") {
+        const user: User = {
+          name: callback.data.name,
+          email: callback.data.email,
+          avatar: callback.data.avatar,
+          publicChannels: [],
+          blockList: callback.data.blockList,
+        };
+        console.log(user);
+        dispatch(loginStatus(user));
+        dispatch(setNotifications(callback.data.notifications));
+        dispatch(channelListSet(callback.data.channels));
+        dispatch(changeLoadingScreen(false));
+      }
     });
   };
 };

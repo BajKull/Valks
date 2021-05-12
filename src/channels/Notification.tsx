@@ -26,7 +26,7 @@ export default function Notification(props: NotificationProps) {
   };
 
   const accNotification = () => {
-    dispatch(acceptNotification(props.notification));
+    dispatch(acceptNotification(props.notification, user));
   };
 
   const goToChannel = () => {
