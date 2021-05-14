@@ -71,15 +71,23 @@
       .chatMessage {
         width: calc(100% - 50px);
         color: white;
-        padding: 10px 25px;
+        padding: 10px 15px;
         font-size: 0.9em;
-        word-break: break-all;
+        word-break: break-word;
+        display: flex;
 
         &:nth-of-type(2n) {
           background-color: lighten($purple, 3);
         }
         &:hover {
           background-color: $purple;
+        }
+
+        .msgAvatar {
+          height: 40px;
+          width: 40px;
+          border-radius: 50%;
+          margin-right: 15px;
         }
 
         .messageInfo {

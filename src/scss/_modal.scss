@@ -18,15 +18,22 @@
     color: white;
     position: relative;
 
-    .error {
+    .error,
+    .success {
       position: absolute;
       top: 0;
       left: 0;
-      background-color: $error;
       border-radius: 10px 10px 0 0;
       padding: 30px 25px;
       width: calc(100% - 50px);
       z-index: 3;
+    }
+
+    .error {
+      background-color: $error;
+    }
+    .success {
+      background-color: $blue;
     }
 
     .close {
@@ -58,7 +65,8 @@
     }
 
     .interfaceSmall {
-      height: 250px;
+      height: 240px;
+      max-height: 240px;
       display: flex;
       align-items: center;
     }

@@ -18,9 +18,9 @@ import DisplayError from "./components/DisplayError";
 export default function App() {
   const user = useSelector((state: RootStateOrAny) => state.loginStatus);
   const modalScreen = useSelector((state: RootStateOrAny) => state.modalScreen);
-  const displayError = useSelector(
-    (state: RootStateOrAny) => state.displayError
-  );
+  // const displayError = useSelector(
+  //   (state: RootStateOrAny) => state.displayError
+  // );
   useAuth();
 
   return (

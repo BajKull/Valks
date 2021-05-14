@@ -14,10 +14,10 @@ export default function Socket() {
   useEffect(() => {
     if (!socket) return;
     socket.on("userList", (data: UserList) => {
+      console.log(data);
       dispatch(channelUserList(data));
     });
     socket.on("message", (data: Message) => {
-      console.log(data);
       dispatch(channelMessagesAdd(data));
       const body = document.querySelector(".chatMessages");
       if (body) body.scrollTop = body.scrollHeight;

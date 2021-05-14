@@ -21,8 +21,9 @@ const ChannelList = (state = [], action: Action) => {
       const id = action.payload as string;
       return state.filter((channel: Channel) => channel.id !== id);
     case "CHANNEL_USER_LIST":
+      const users: UserList = action.payload as UserList;
+      console.log(users.users);
       return state.map((channel: Channel) => {
-        const users: UserList = action.payload as UserList;
         if (channel.id !== users.channel) return channel;
         else return { ...channel, users: users.users };
       });

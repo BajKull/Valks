@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
-import { storage, firestore } from "../firebase/firebase";
+import { storage } from "../firebase/firebase";
 import { changeAvatarAction } from "../redux/actions/changeAvatar";
 import { displayError } from "../redux/actions/displayError";
 
@@ -26,7 +26,7 @@ const useStorage = (file: File) => {
         setUrl(url);
       }
     );
-  }, [file]);
+  }, [file, error, user.email]);
 
   return { progress, error, url };
 };
@@ -44,7 +44,7 @@ export default function AvatarUpload(props: any) {
       dispatch(displayError(error));
       props.setFile(null);
     }
-  }, [url]);
+  }, [dispatch, error, props, url, user]);
   return (
     <div className="progressBar">
       <div className="progress" style={{ width: `${progress}%` }}></div>

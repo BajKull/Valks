@@ -8,7 +8,7 @@ import Loading from "../loading/Loading";
 import { loginStatus } from "../redux/actions/loginStatus";
 import Modal from "../components/Modal";
 import { registerUser } from "../connection/socketActions";
-import { User } from "../types";
+import { checkPassword } from "../components/checkPassword";
 
 export default function Register() {
   const [email, setEmail] = useState("");
@@ -24,6 +24,12 @@ export default function Register() {
     if (password !== password2) {
       setError(true);
       setErrorMsg("Passwords do not match");
+      return;
+    }
+    const err = checkPassword(password);
+    if (err) {
+      setError(true);
+      setErrorMsg(err);
       return;
     }
     setLoading(true);

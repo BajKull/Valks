@@ -7,6 +7,7 @@ import { User } from "../types";
 import { ReactComponent as Close } from "../images/close.svg";
 import { ReactComponent as Complete } from "../images/complete.svg";
 import Loading from "../loading/Loading";
+import { checkPassword } from "../components/checkPassword";
 
 export default function PasswordModal() {
   const [currentPswd, setCurrentPswd] = useState("");
@@ -24,6 +25,12 @@ export default function PasswordModal() {
     if (pswd1 !== pswd2) {
       setError(true);
       setErrorMsg("Passwords don't match.");
+      return;
+    }
+    const err = checkPassword(pswd1);
+    if (err) {
+      setError(true);
+      setErrorMsg(err);
       return;
     }
     setLoading(true);

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router";
 import DeleteModal from "./DeleteModal";

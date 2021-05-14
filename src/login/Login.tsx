@@ -13,6 +13,8 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
+  const [success, setSuccess] = useState(false);
+  const [successMsg, setSuccessMsg] = useState("");
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
 
@@ -20,6 +22,7 @@ export default function Login() {
     e.preventDefault();
     setLoading(true);
     setError(false);
+    setSuccess(false);
     auth
       .signInWithEmailAndPassword(email, password)
       .then((res) => {
@@ -31,6 +34,24 @@ export default function Login() {
         setError(true);
         setErrorMsg(err.message);
         setLoading(false);
+      });
+  };
+
+  const resetEmail = () => {
+    setLoading(true);
+    setError(false);
+    setSuccess(false);
+    auth
+      .sendPasswordResetEmail(email)
+      .then(() => {
+        setSuccess(true);
+        setLoading(false);
+        setSuccessMsg(`Password reset email sent to ${email}`);
+      })
+      .catch((err) => {
+        setError(true);
+        setLoading(false);
+        setErrorMsg(err.message);
       });
   };
 
@@ -51,6 +72,17 @@ export default function Login() {
           <>
             <p className="error">{errorMsg}</p>
             <Close className="close" onClick={() => setError(false)} />
+          </>
+        </CSSTransition>
+        <CSSTransition
+          in={success}
+          unmountOnExit
+          timeout={500}
+          classNames="fadeout"
+        >
+          <>
+            <p className="success">{successMsg}</p>
+            <Close className="close" onClick={() => setSuccess(false)} />
           </>
         </CSSTransition>
         <CSSTransition
@@ -84,6 +116,7 @@ export default function Login() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+
             <input type="submit" className="formSubmit" />
           </form>
         </CSSTransition>
@@ -92,6 +125,12 @@ export default function Login() {
         Not a member?{" "}
         <span className="underline" onClick={switchSignUp}>
           Sign up now
+        </span>
+      </p>
+      <p className="tip">
+        Forgot password?{" "}
+        <span className="underline" onClick={resetEmail}>
+          Send reset email
         </span>
       </p>
     </Modal>
